@@ -1,0 +1,21 @@
+.navbar__main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 1rem;
+  background-color: aqua;
+}
+
+.navbar__logo_wrapper {
+  background-color: blueviolet;
+}
+
+.navbar__links {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.navbar__links li {
+  margin: 0px 0.5rem 0px 0.5rem;
+}

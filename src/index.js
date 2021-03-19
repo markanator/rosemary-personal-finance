@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 //locals
 import App from './App';
+import './styles/cssreset.css';
 
 ReactDOM.render(
   <Router>

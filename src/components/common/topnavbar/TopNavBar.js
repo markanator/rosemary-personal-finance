@@ -13,7 +13,9 @@ export default function TopNavBar() {
           <li>
             <NavLink to="/dashboard">Dashboard</NavLink>
           </li>
-          <li>2</li>
+          <li>
+            <NavLink to="/transactions">Transactions</NavLink>
+          </li>
           <li>3</li>
           <li>4</li>
         </ul>

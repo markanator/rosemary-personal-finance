@@ -1,11 +1,6 @@
 import React from 'react';
-import TopNavBar from '../components/common/topnavbar/TopNavBar';
+import Layout from '../components/common/layout/layout';
 
 export default function Home() {
-  return (
-    <div>
-      <TopNavBar />
-      homepage
-    </div>
-  );
+  return <Layout>homepage</Layout>;
 }

@@ -24,9 +24,17 @@ export default function TopNavBar() {
           </li>
         </ul>
         <div>
-          <button>Login</button>
+          <LoginButton text="Login" />
         </div>
       </nav>
     </header>
   );
 }
+
+const LoginButton = ({ text }) => {
+  return (
+    <Link to="/" className={styles.navbar__loginbtn}>
+      {text}
+    </Link>
+  );
+};

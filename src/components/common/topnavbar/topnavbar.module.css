@@ -2,9 +2,10 @@
   display: flex;
   width: 100%;
   /* flex-direction: row; */
-  background-color: aqua;
+  /* background-color: aqua; */
   justify-content: center;
   align-items: center;
+  border: 1px solid #e2e5e6;
 }
 
 .navbar__main {
@@ -16,10 +17,6 @@
   align-items: center;
   width: 100%;
   max-width: 1167px;
-}
-
-.navbar__logo_wrapper {
-  /* background-color: blueviolet; */
 }
 
 .navbar__navlist {
@@ -38,4 +35,11 @@
 .navbar__links {
   font-weight: 600;
   font-size: 1rem;
+}
+
+.navbar__loginbtn {
+  background-color: var(--color-pastel-green);
+  padding: 0.75rem;
+  color: black;
+  font-weight: 900;
 }

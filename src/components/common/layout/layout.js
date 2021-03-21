@@ -1,5 +1,6 @@
 import React from 'react';
 import TopNavBar from '../topnavbar/TopNavBar';
+import PageFooter from '../simplefooter/page-footer';
 
 /**
  * This component sandwiches the children content with a navigation bar and footer
@@ -12,7 +13,7 @@ export default function Layout({ children }) {
     <div>
       <TopNavBar />
       {children}
-      {/* ADD FOOTER HERE */}
+      <PageFooter />
     </div>
   );
 }

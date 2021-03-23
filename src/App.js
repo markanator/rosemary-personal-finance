@@ -8,7 +8,7 @@ function App() {
           HOME
         </Route>
         <Route path="/dashboard">Dashboard</Route>
-        <Route path="/transactions">All Transactions</Route>
+        <Route path="/transactions">All Transactions PAGE</Route>
         <Route>
           <h1>Error</h1>
           <p>Page does not exists.</p>

@@ -19,17 +19,6 @@
     "lint": "prettier --check .",
     "format": "prettier --write \"**/*.+(js|jsx|css)\""
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "eslint --fix",
-      "prettier-eslint --write"
-    ]
-  },
   "eslintConfig": {
     "extends": [
       "react-app",

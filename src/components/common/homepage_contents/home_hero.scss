@@ -23,18 +23,51 @@
     }
     .hero__image {
       object-fit: cover;
+      cursor: pointer;
     }
   }
   .right__side {
     width: 50%;
     margin: 1.5rem;
+    max-width: 445px;
 
     .--about {
       font-family: 'Mulish';
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.875rem;
-      color: #6fcf97;
       text-transform: uppercase;
+      color: var(--color-accent-green);
+      margin-bottom: 0.875rem;
+    }
+    .--header {
+      font-size: 2.75rem;
+      font-weight: 700;
+      line-height: 3.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .--blurb {
+      font-size: 1.125rem;
+      letter-spacing: 0.2px;
+      color: var(--font-secondary-color);
+      margin-bottom: 4rem;
+    }
+
+    .--signup {
+      border-radius: 0px;
+      font-weight: 700;
+      color: var(--color-accent-green);
+      background-color: transparent;
+      // color: var(--font-secondary-color);
+      border: 2px solid var(--color-accent-green);
+      padding: 0.875rem 1.5rem 0.875rem 1.5rem;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background-color: var(--color-accent-green);
+      }
     }
   }
 }

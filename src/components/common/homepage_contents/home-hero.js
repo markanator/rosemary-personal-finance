@@ -24,10 +24,7 @@ export default function HomeHero() {
             <div>
               <p className="--about">About us</p>
               <h1 className="--header">
-                Customized Personal <br />
-                Financial and Money
-                <br />
-                Management
+                Customized Personal Financial and Money Management
               </h1>
               <p className="--blurb">
                 Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad,

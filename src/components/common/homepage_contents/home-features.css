@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+.feature-container {
+  text-align: center;
+  margin: 30px;
+}
+
+.columns {
+  display: flex;
+  flex-direction: colum;
+  font-size: 30px;
+  text-align: center;
+}
+
+.column {
+  font-size: 14px;
+  padding: 30px;
+  margin: 30px;
+  text-align: center;
+  flex: 50%;
+}
+
+.app-icon {
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (max-width: 800px) {
+  .columns {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .columns {
+    flex-direction: column;
+  }
+}

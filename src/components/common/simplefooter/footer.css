@@ -1,6 +1,52 @@
-.page-footer{
-    margin-top: 2rem;
-    text-align: center;
-    font-style: italic;
-    padding: 0.875rem;
+.page__footer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
+
+.navbar__logo_wrapper{
+    width: 55%;
+}
+
+.navbar__main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0.875rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1167px;
+  }
+
+  .navbar__navlist {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar__navlist li {
+    margin: 0px 0.5rem 0px 0.5rem;
+  }
+  
+  .navbar__links {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .navbar__copyright {
+    width: 100%;
+    color: rgb(100, 100, 100);
+    padding: 0.75rem;
+    font-style: italic;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .navbar__navlist {
+      padding-inline-start: 0px;
+    }
+  }

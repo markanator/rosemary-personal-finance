@@ -1,1 +1,1 @@
-export { default } from './DashboardTrxTable';
+export { default } from './SmallTable';

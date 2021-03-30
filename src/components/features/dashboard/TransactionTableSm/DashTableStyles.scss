@@ -1,0 +1,25 @@
+.dashtrx__section {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: #8282821f;
+
+  .trx__wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1167px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .trx__component {
+    .trx__adjust {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0px;
+    }
+  }
+}

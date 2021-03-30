@@ -17,18 +17,32 @@
 
   .left__side {
     width: 50%;
-    // margin: 1.5rem;
+    position: relative;
 
     button[type='button'] {
       border: 0px;
       background-color: transparent;
     }
     .hero__image {
+      position: relative;
       cursor: pointer;
       object-fit: cover;
       border-radius: 0.5rem;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
         0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .play__icon {
+      position: absolute;
+      text-align: center;
+      top: 40%;
+      left: 45%;
+      font-size: 5rem;
+      color: #ffffff;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   .right__side {

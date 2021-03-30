@@ -1,6 +1,7 @@
 // image from @f7photo https://unsplash.com/photos/lhltMGdohc8
 import React, { useState } from 'react';
 import ModalVideo from 'react-modal-video';
+import { FaPlayCircle } from 'react-icons/fa';
 import './home_hero.scss';
 
 export default function HomeHero() {
@@ -18,6 +19,7 @@ export default function HomeHero() {
                 width="635px"
                 height="512px"
               />
+              <FaPlayCircle className="play__icon" />
             </button>
           </div>
           <div className="right__side">

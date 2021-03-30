@@ -1,6 +1,8 @@
 import { Switch, Route } from 'react-router-dom';
 import Layout from './components/common/layout/layout';
+import DashBoard from './pages/dashboard';
 import Home from './pages/home';
+import Transaction from './pages/transaction';
 
 function App() {
   return (
@@ -10,12 +12,10 @@ function App() {
           <Home />
         </Route>
         <Route path="/dashboard">
-          {/* make this into a single component */}
-          <Layout>Dashboard</Layout>
+          <DashBoard/>
         </Route>
         <Route path="/transactions">
-          {/* make this into a single component */}
-          <Layout>All Transactions</Layout>
+          <Transaction/>
         </Route>
         <Route>
           {/* make this into a single component */}

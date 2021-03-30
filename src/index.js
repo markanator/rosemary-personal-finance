@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import './styles/globalStyles.css';
 import './styles/cssreset.css';
+import './styles/videoModal.scss';
 
 ReactDOM.render(
   <Router>

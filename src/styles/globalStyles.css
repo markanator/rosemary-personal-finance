@@ -2,7 +2,22 @@
 
 :root {
   --font-primary-color: #373f41;
+  --font-secondary-color: #737b7d;
   --color-pastel-green: #d7ffec;
+  --color-accent-green: #6fcf97;
+}
+
+body {
+  font-family: 'Mulish';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--font-primary-color);
 }
 
 a {

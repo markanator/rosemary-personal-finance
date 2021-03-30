@@ -1,0 +1,40 @@
+.hero__main {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: #8282821f;
+}
+
+.hero__wrapper {
+  display: flex;
+  flex-direction: row;
+  max-width: 1167px;
+
+  .left__side {
+    width: 50%;
+    // margin: 1.5rem;
+
+    button[type='button'] {
+      border: 0px;
+      background-color: transparent;
+    }
+    .hero__image {
+      object-fit: cover;
+    }
+  }
+  .right__side {
+    width: 50%;
+    margin: 1.5rem;
+
+    .--about {
+      font-family: 'Mulish';
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: #6fcf97;
+      text-transform: uppercase;
+    }
+  }
+}

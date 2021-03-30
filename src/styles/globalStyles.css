@@ -5,6 +5,10 @@
   --color-pastel-green: #d7ffec;
 }
 
+body {
+  font-family: 'Mulish';
+}
+
 a {
   text-decoration: none;
   color: var(--font-primary-color);

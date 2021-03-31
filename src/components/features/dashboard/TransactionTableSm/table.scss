@@ -4,12 +4,37 @@ $tableHoverColor: #ddd;
 .dashtrxtable {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 1.5rem;
   border-radius: $radius;
   border-spacing: 0px;
   background-color: white;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  table-layout: fixed;
+  margin-bottom: 1.5rem;
+
+  thead {
+    .header-type {
+      width: 10%;
+    }
+    .header-date {
+      width: 10%;
+    }
+    .header-details {
+      width: 40%;
+    }
+    .header-category {
+      width: 15%;
+    }
+    .header-amount {
+      width: 10%;
+    }
+    .header-balance {
+      width: 10%;
+    }
+    .header- {
+      width: 5%;
+    }
+  }
 }
 
 .dashtrxtable thead tr th:first-child {

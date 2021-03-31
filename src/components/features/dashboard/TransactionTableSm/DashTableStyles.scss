@@ -41,7 +41,8 @@
       margin-right: 0.5rem;
       transition: all 0.2s ease-in-out;
 
-      &:hover {
+      &:hover,
+      &.active {
         cursor: pointer;
         color: white;
         background-color: var(--color-accent-green);

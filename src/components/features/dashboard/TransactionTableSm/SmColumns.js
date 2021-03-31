@@ -24,7 +24,7 @@ export const COLUMNS = [
     accessor: 'running_bal',
   },
   // {
-  //   Header: 'Options',
-  //   accessor: 'id',
+  //   Header: '_',
+  //   accessor: '_id',
   // },
 ];

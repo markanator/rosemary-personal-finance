@@ -1,1 +1,1 @@
-export { default } from './SmallTable';
+export { default } from './DashboardTableSection';

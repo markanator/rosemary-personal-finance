@@ -6,7 +6,7 @@ import formatMoney from '../../../../utils/formatMoney';
 import { COLUMNS } from './SmColumns';
 
 export default function SmallTable() {
-  const balance = 1000_00;
+  const balance = 100_00;
   // memoize data to prevent excessive renders
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(
@@ -16,7 +16,7 @@ export default function SmallTable() {
         return {
           ...trx,
           trx_date: dayjs(trx.trx_date).format('MM/DD/YY'),
-          trx_details: `${trx.trx_details.slice(0, 77)}...`,
+          trx_details: `${trx.trx_details.slice(0, 57)}...`,
           trx_amount: formatMoney(amount),
           running_bal: formatMoney(balance - amount),
         };
@@ -45,6 +45,7 @@ export default function SmallTable() {
     gotoPage,
     nextPage,
     previousPage,
+    state: { pageIndex },
   } = tableInstance;
 
   return (
@@ -61,7 +62,11 @@ export default function SmallTable() {
             {headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps()}>
+                  <th
+                    {...column.getHeaderProps()}
+                    className={`header-${column.Header.toLowerCase()}`}
+                  >
+                    {/* {console.log('COL', column)} */}
                     {column.render('Header')}
                   </th>
                 ))}
@@ -93,7 +98,11 @@ export default function SmallTable() {
           Prev
         </button>
         {pageOptions.map((page, idx) => (
-          <button className="trx__btn" key={page} onClick={() => gotoPage(idx)}>
+          <button
+            className={`trx__btn ${pageIndex === idx ? 'active' : ''}`}
+            key={page}
+            onClick={() => gotoPage(idx)}
+          >
             {idx + 1}
           </button>
         ))}

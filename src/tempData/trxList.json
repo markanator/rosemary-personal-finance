@@ -24,7 +24,7 @@
     "trx_date": "2021-02-01T18:50:06Z",
     "trx_details": "Vestibulum sed magna at nunc commodo placerat.",
     "trx_category": "Other",
-    "trx_amount": 170
+    "trx_amount": -170
   },
   {
     "id": 4,
@@ -42,7 +42,7 @@
     "trx_date": "2021-03-08T22:19:10Z",
     "trx_details": "Quisque porta volutpat erat.",
     "trx_category": "Income",
-    "trx_amount": 278
+    "trx_amount": -278
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "trx_date": "2021-03-07T18:51:19Z",
     "trx_details": "Etiam faucibus cursus urna.",
     "trx_category": "Credit Card",
-    "trx_amount": 856
+    "trx_amount": -856
   },
   {
     "id": 7,
@@ -69,7 +69,7 @@
     "trx_date": "2020-04-26T04:23:39Z",
     "trx_details": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
     "trx_category": "Other",
-    "trx_amount": 609
+    "trx_amount": -609
   },
   {
     "id": 9,
@@ -87,7 +87,7 @@
     "trx_date": "2020-03-06T23:59:38Z",
     "trx_details": "Curabitur convallis.",
     "trx_category": "Credit Card",
-    "trx_amount": 246
+    "trx_amount": -246
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "trx_date": "2020-10-16T03:47:18Z",
     "trx_details": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
     "trx_category": "Bills",
-    "trx_amount": 796
+    "trx_amount": -796
   },
   {
     "id": 12,
@@ -123,7 +123,7 @@
     "trx_date": "2021-03-06T06:48:59Z",
     "trx_details": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
     "trx_category": "Entertainment",
-    "trx_amount": 242
+    "trx_amount": -242
   },
   {
     "id": 15,
@@ -132,7 +132,7 @@
     "trx_date": "2021-01-19T14:30:51Z",
     "trx_details": "Aliquam sit amet diam in magna bibendum imperdiet.",
     "trx_category": "Entertainment",
-    "trx_amount": 921
+    "trx_amount": -921
   },
   {
     "id": 16,
@@ -141,7 +141,7 @@
     "trx_date": "2021-03-15T10:43:04Z",
     "trx_details": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
     "trx_category": "Entertainment",
-    "trx_amount": 648
+    "trx_amount": -648
   },
   {
     "id": 17,
@@ -150,7 +150,7 @@
     "trx_date": "2020-08-14T02:52:45Z",
     "trx_details": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
     "trx_category": "Credit Card",
-    "trx_amount": 866
+    "trx_amount": -866
   },
   {
     "id": 18,

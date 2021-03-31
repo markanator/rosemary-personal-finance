@@ -1,24 +1,21 @@
-import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
-import { useTable, usePagination } from 'react-table';
+import { usePagination, useSortBy, useTable, useFilters } from 'react-table';
 import MOCK_DATA from '../../../../tempData/trxList.json';
 import formatMoney from '../../../../utils/formatMoney';
 import { COLUMNS } from './SmColumns';
 
 export default function SmallTable() {
-  const balance = 100_00;
+  let balance = 0;
   // memoize data to prevent excessive renders
   const columns = useMemo(() => COLUMNS, []);
+
   const data = useMemo(
     () =>
       MOCK_DATA.map(trx => {
-        let amount = trx.trx_amount * 10;
+        balance += trx.trx_amount * 100;
         return {
           ...trx,
-          trx_date: dayjs(trx.trx_date).format('MM/DD/YY'),
-          trx_details: `${trx.trx_details.slice(0, 57)}...`,
-          trx_amount: formatMoney(amount),
-          running_bal: formatMoney(balance - amount),
+          running_bal: formatMoney(balance),
         };
       }),
     []
@@ -30,6 +27,8 @@ export default function SmallTable() {
       data,
       initialState: { pageIndex: 0, pageSize: 5 },
     },
+    useFilters,
+    useSortBy,
     usePagination
   );
 
@@ -63,11 +62,20 @@ export default function SmallTable() {
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map(column => (
                   <th
-                    {...column.getHeaderProps()}
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
                     className={`header-${column.Header.toLowerCase()}`}
                   >
-                    {/* {console.log('COL', column)} */}
                     {column.render('Header')}
+                    <span>
+                      {column.isSorted
+                        ? column.isSortedDesc
+                          ? ' ▼'
+                          : ' ▲'
+                        : ''}
+                    </span>
+                    <div>
+                      {column.canFilter ? column.render('Filter') : null}
+                    </div>
                   </th>
                 ))}
               </tr>

@@ -23,8 +23,8 @@ export const COLUMNS = [
     Header: 'Balance',
     accessor: 'running_bal',
   },
-  {
-    Header: 'Options',
-    accessor: 'id',
-  },
+  // {
+  //   Header: 'Options',
+  //   accessor: 'id',
+  // },
 ];

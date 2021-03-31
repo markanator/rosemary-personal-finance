@@ -1,0 +1,32 @@
+.chart{
+    width: 10%;
+    margin: auto;
+    padding: 2rem;
+    flex-direction: row;
+}
+.details{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.colorReference_red{
+    color: red;
+}
+.colorReference_orange{
+    color: orange;
+}
+.colorReference_yellow{
+    color: gold;
+}
+.colorReference_green{
+    color: green;
+}
+.colorReference_blue{
+    color: blue;
+}
+.colorReference_purple{
+    color: purple;
+}

@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "user_id": 1,
+    "trx_type": "Transfer",
+    "trx_date": "2020-02-26T16:14:28Z",
+    "trx_details": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
+    "trx_category": "Entertainment",
+    "trx_amount": 495
+  },
+  {
+    "id": 2,
+    "user_id": 1,
+    "trx_type": "Transfer",
+    "trx_date": "2021-01-01T02:21:39Z",
+    "trx_details": "Aenean lectus.",
+    "trx_category": "Entertainment",
+    "trx_amount": 697
+  },
+  {
+    "id": 3,
+    "user_id": 1,
+    "trx_type": "Debit",
+    "trx_date": "2021-02-01T18:50:06Z",
+    "trx_details": "Vestibulum sed magna at nunc commodo placerat.",
+    "trx_category": "Other",
+    "trx_amount": 170
+  },
+  {
+    "id": 4,
+    "user_id": 1,
+    "trx_type": "Transfer",
+    "trx_date": "2020-07-27T00:36:01Z",
+    "trx_details": "Etiam justo.",
+    "trx_category": "Fast Food",
+    "trx_amount": 45
+  },
+  {
+    "id": 5,
+    "user_id": 1,
+    "trx_type": "Credit",
+    "trx_date": "2021-03-08T22:19:10Z",
+    "trx_details": "Quisque porta volutpat erat.",
+    "trx_category": "Income",
+    "trx_amount": 278
+  },
+  {
+    "id": 6,
+    "user_id": 1,
+    "trx_type": "Credit",
+    "trx_date": "2021-03-07T18:51:19Z",
+    "trx_details": "Etiam faucibus cursus urna.",
+    "trx_category": "Credit Card",
+    "trx_amount": 856
+  },
+  {
+    "id": 7,
+    "user_id": 1,
+    "trx_type": "Transfer",
+    "trx_date": "2020-06-12T05:56:11Z",
+    "trx_details": "Mauris ullamcorper purus sit amet nulla.",
+    "trx_category": "Bills",
+    "trx_amount": 59
+  },
+  {
+    "id": 8,
+    "user_id": 1,
+    "trx_type": "Credit",
+    "trx_date": "2020-04-26T04:23:39Z",
+    "trx_details": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
+    "trx_category": "Other",
+    "trx_amount": 609
+  },
+  {
+    "id": 9,
+    "user_id": 1,
+    "trx_type": "Transfer",
+    "trx_date": "2021-01-06T13:27:14Z",
+    "trx_details": "Nulla mollis molestie lorem.",
+    "trx_category": "Credit Card",
+    "trx_amount": 698
+  },
+  {
+    "id": 10,
+    "user_id": 1,
+    "trx_type": "Debit",
+    "trx_date": "2020-03-06T23:59:38Z",
+    "trx_details": "Curabitur convallis.",
+    "trx_category": "Credit Card",
+    "trx_amount": 246
+  },
+  {
+    "id": 11,
+    "user_id": 1,
+    "trx_type": "Debit",
+    "trx_date": "2020-10-16T03:47:18Z",
+    "trx_details": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+    "trx_category": "Bills",
+    "trx_amount": 796
+  },
+  {
+    "id": 12,
+    "user_id": 1,
+    "trx_type": "Transfer",
+    "trx_date": "2020-07-05T22:07:09Z",
+    "trx_details": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
+    "trx_category": "Fast Food",
+    "trx_amount": 668
+  },
+  {
+    "id": 13,
+    "user_id": 1,
+    "trx_type": "Transfer",
+    "trx_date": "2020-05-13T15:32:35Z",
+    "trx_details": "Ut tellus.",
+    "trx_category": "Entertainment",
+    "trx_amount": 482
+  },
+  {
+    "id": 14,
+    "user_id": 1,
+    "trx_type": "Credit",
+    "trx_date": "2021-03-06T06:48:59Z",
+    "trx_details": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+    "trx_category": "Entertainment",
+    "trx_amount": 242
+  },
+  {
+    "id": 15,
+    "user_id": 1,
+    "trx_type": "Credit",
+    "trx_date": "2021-01-19T14:30:51Z",
+    "trx_details": "Aliquam sit amet diam in magna bibendum imperdiet.",
+    "trx_category": "Entertainment",
+    "trx_amount": 921
+  },
+  {
+    "id": 16,
+    "user_id": 1,
+    "trx_type": "Credit",
+    "trx_date": "2021-03-15T10:43:04Z",
+    "trx_details": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+    "trx_category": "Entertainment",
+    "trx_amount": 648
+  },
+  {
+    "id": 17,
+    "user_id": 1,
+    "trx_type": "Credit",
+    "trx_date": "2020-08-14T02:52:45Z",
+    "trx_details": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
+    "trx_category": "Credit Card",
+    "trx_amount": 866
+  },
+  {
+    "id": 18,
+    "user_id": 1,
+    "trx_type": "Transfer",
+    "trx_date": "2020-09-12T05:56:23Z",
+    "trx_details": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",
+    "trx_category": "Income",
+    "trx_amount": 328
+  },
+  {
+    "id": 19,
+    "user_id": 1,
+    "trx_type": "Transfer",
+    "trx_date": "2020-04-16T06:17:56Z",
+    "trx_details": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
+    "trx_category": "Income",
+    "trx_amount": 744
+  },
+  {
+    "id": 20,
+    "user_id": 1,
+    "trx_type": "Transfer",
+    "trx_date": "2020-08-22T13:32:55Z",
+    "trx_details": "Nullam porttitor lacus at turpis.",
+    "trx_category": "Entertainment",
+    "trx_amount": 691
+  }
+]

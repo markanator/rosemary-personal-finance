@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { usePagination, useSortBy, useTable, useFilters } from 'react-table';
+import { usePagination, useSortBy, useTable } from 'react-table';
 import MOCK_DATA from '../../../../tempData/trxList.json';
 import formatMoney from '../../../../utils/formatMoney';
 import { COLUMNS } from './SmColumns';
@@ -12,6 +12,7 @@ export default function SmallTable() {
   const data = useMemo(
     () =>
       MOCK_DATA.map(trx => {
+        // eslint-disable-next-line
         balance += trx.trx_amount * 100;
         return {
           ...trx,
@@ -25,9 +26,12 @@ export default function SmallTable() {
     {
       columns,
       data,
-      initialState: { pageIndex: 0, pageSize: 5 },
+      initialState: {
+        sortBy: [{ id: 'trx_date', desc: true }],
+        pageIndex: 0,
+        pageSize: 5,
+      },
     },
-    useFilters,
     useSortBy,
     usePagination
   );
@@ -51,9 +55,15 @@ export default function SmallTable() {
     <div className="trx__component">
       <div className="trx__adjust">
         <div className="--left">
-          <b>Filter By:</b>
+          {/* <b>Filter By:</b> */}
+          {/* Sticking with sorting for now! */}
         </div>
-        <div className="--right">right</div>
+        <div className="--right">
+          {/*
+          // TODO:: ADD MODAL TO add a transaction
+          */}
+          <button className="btn-primary">Add Transaction</button>
+        </div>
       </div>
       <div className="--trxwrapper">
         <table className="dashtrxtable" {...getTableProps()}>
@@ -99,7 +109,7 @@ export default function SmallTable() {
       </div>
       <div className="--paginate">
         <button
-          className="trx__btn"
+          className="btn-primary"
           onClick={() => previousPage()}
           disabled={!canPreviousPage}
         >
@@ -107,7 +117,7 @@ export default function SmallTable() {
         </button>
         {pageOptions.map((page, idx) => (
           <button
-            className={`trx__btn ${pageIndex === idx ? 'active' : ''}`}
+            className={`btn-primary ${pageIndex === idx ? 'active' : ''}`}
             key={page}
             onClick={() => gotoPage(idx)}
           >
@@ -115,7 +125,7 @@ export default function SmallTable() {
           </button>
         ))}
         <button
-          className="trx__btn"
+          className="btn-primary"
           onClick={() => nextPage()}
           disabled={!canNextPage}
         >

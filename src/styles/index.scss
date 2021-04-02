@@ -1,0 +1,28 @@
+@import './videoModal.scss';
+
+.btn-primary {
+  border-radius: 0px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid #ddd;
+
+  padding: 0.875rem;
+  margin-right: 0.5rem;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &.active {
+    cursor: pointer;
+    color: white;
+    background-color: var(--color-accent-green);
+    border: 2px solid var(--color-accent-green);
+  }
+
+  &:disabled {
+    border: 2px solid #aba1a1;
+    background-color: #e4e4e4;
+    color: #9e9e9e;
+  }
+}

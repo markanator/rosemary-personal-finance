@@ -5,8 +5,10 @@ import DashboardTableSection from '../components/features/dashboard/TransactionT
 export default function DashBoard() {
   return (
     <Layout>
+      <section>
       Dash Board.
       <DashboardTableSection />
+      </section>
     </Layout>
   );
 }

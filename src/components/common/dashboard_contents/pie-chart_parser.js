@@ -3,32 +3,32 @@ export default function PieChartParser(arrayOfData) {
     Entertainment: {
       category: 'Entertainment',
       value: 0,
-      color: 'yellow',
+      color: '#FFD9D9',
     },
     CreditCard: {
       category: 'Credit Card',
       value: 0,
-      color: 'orange',
+      color: '#7F7F7F',
     },
     Bills: {
       category: 'Bills',
       value: 0,
-      color: 'red',
-    },
-    Other: {
-      category: 'Other',
-      value: 0,
-      color: 'purple',
+      color: '#E1DCFF',
     },
     FastFood: {
       category: 'Fast Food',
       value: 0,
-      color: 'blue',
+      color: '#D7FFEC',
     },
     Income: {
       category: 'Income',
       value: 0,
       color: 'green',
+    },
+    Other: {
+      category: 'Other',
+      value: 0,
+      color: '#FFEBD9',
     },
   };
 

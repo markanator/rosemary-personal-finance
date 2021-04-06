@@ -1,32 +1,49 @@
+.title{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
 .chart{
-    width: 10%;
+    /* width: 10%; */
     margin: auto;
     padding: 2rem;
-    flex-direction: row;
-}
-.details{
+    flex-direction: column;
+    border: rgb(206, 206, 206) solid 2px;
+    border-radius: 2rem;
+    max-width: 475px;
+    max-height: 502px;
     display: flex;
-    flex-direction: row;
-    list-style: none;
     justify-content: center;
     align-items: center;
 }
 
-.colorReference_red{
-    color: red;
+.pie_chart{
+    width: 320px;
+    height: 320px;
 }
-.colorReference_orange{
-    color: orange;
+
+.details{
+    padding: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    font-size: .875rem;
+    margin-top: 2rem;
 }
-.colorReference_yellow{
-    color: gold;
+
+.label p{
+    font-size: 12px;
 }
-.colorReference_green{
-    color: green;
-}
-.colorReference_blue{
-    color: blue;
-}
-.colorReference_purple{
-    color: purple;
+
+.circle{
+    background-color: lightgray;
+    border-radius: 50%;
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin-right: 3px;
 }

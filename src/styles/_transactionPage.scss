@@ -1,0 +1,25 @@
+.transaction__main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  .--header {
+    margin-bottom: 1rem;
+  }
+
+  .transaction__wrapper {
+    display: flex;
+    flex-direction: row;
+
+    .transaction__sidebar {
+      width: 25%;
+      background-color: lightblue;
+    }
+
+    .transaction__table {
+      width: 75%;
+    }
+  }
+}

@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "prettier --check .",
-    "format": "prettier --write \"**/*.+(js|jsx|css)\""
+    "format": "prettier --write \"**/*.+(js|jsx|css|scss)\""
   },
   "husky": {
     "hooks": {

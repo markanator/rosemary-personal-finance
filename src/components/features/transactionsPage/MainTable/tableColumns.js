@@ -15,7 +15,7 @@ export const MainTableColumns = [
   {
     Header: 'Details',
     accessor: 'trx_details',
-    Cell: ({ value }) => `${value.slice(0, 57)}...`,
+    Cell: ({ value }) => `${value.slice(0, 37)}...`,
     disableFilters: true,
   },
   {

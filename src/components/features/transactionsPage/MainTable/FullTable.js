@@ -3,6 +3,7 @@ import { usePagination, useSortBy, useTable } from 'react-table';
 import MOCK_DATA from '../../../../tempData/trxList.json';
 import formatMoney from '../../../../utils/formatMoney';
 import { MainTableColumns } from './tableColumns';
+import './mainTrxTable.scss';
 
 export default function FullTable() {
   let balance = 0;
@@ -41,7 +42,7 @@ export default function FullTable() {
       initialState: {
         sortBy: [{ id: 'trx_date', desc: true }],
         pageIndex: 0,
-        pageSize: 5,
+        pageSize: 10,
       },
     },
     useSortBy,
@@ -50,7 +51,10 @@ export default function FullTable() {
 
   return (
     <>
-      <div className="trxtable__main">
+      <div className="trxtable__wrapper">
+        <div className="trxtable__header">
+          <button className="btn-primary">Add Transaction</button>
+        </div>
         <table className="trx__table" {...getTableProps()}>
           <thead>
             {headerGroups.map(headerGroup => (
@@ -91,6 +95,31 @@ export default function FullTable() {
             })}
           </tbody>
         </table>
+        <div className="--paginate">
+          <button
+            className="btn-primary"
+            onClick={() => previousPage()}
+            disabled={!canPreviousPage}
+          >
+            Prev
+          </button>
+          {pageOptions.map((page, idx) => (
+            <button
+              className={`btn-primary ${pageIndex === idx ? 'active' : ''}`}
+              key={page}
+              onClick={() => gotoPage(idx)}
+            >
+              {idx + 1}
+            </button>
+          ))}
+          <button
+            className="btn-primary"
+            onClick={() => nextPage()}
+            disabled={!canNextPage}
+          >
+            Next
+          </button>{' '}
+        </div>
       </div>
     </>
   );

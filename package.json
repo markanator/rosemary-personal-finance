@@ -24,8 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "prettier --check .",
-    "format": "prettier --write \"**/*.+(js|jsx|css)\""
+    "lint": "eslint src/**/*.{js,jsx} --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx}\""
   },
   "husky": {
     "hooks": {

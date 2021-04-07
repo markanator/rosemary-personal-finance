@@ -66,7 +66,7 @@ export default function SmallTable() {
         </div>
       </div>
       <div className="--trxwrapper">
-        <table className="dashtrxtable" {...getTableProps()}>
+        <table className="trx__table" {...getTableProps()}>
           <thead>
             {headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()}>

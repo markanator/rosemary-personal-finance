@@ -8,7 +8,7 @@ export default function PieChartParser(arrayOfData) {
     CreditCard: {
       category: 'Credit Card',
       value: 0,
-      color: '#7F7F7F',
+      color: '#DDDDDD',
     },
     Bills: {
       category: 'Bills',
@@ -37,7 +37,6 @@ export default function PieChartParser(arrayOfData) {
   arrayOfData.forEach(element => {
     // adding values to finalresults array
     switch (element.trx_category) {
-    
       case 'Entertainment':
         // add elemnt value to finalResults
         finalResults.Entertainment.value += element.trx_amount;
@@ -68,8 +67,8 @@ export default function PieChartParser(arrayOfData) {
         finalResults.Income.value += element.trx_amount;
         totalSum += element.trx_amount;
         break;
-    default:
-        console.log("Nothing Detected");
+      default:
+        console.log('Nothing Detected');
     }
   });
 

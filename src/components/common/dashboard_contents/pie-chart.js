@@ -7,10 +7,10 @@ import PieChartParser from './pie-chart_parser';
 const [finalResults] = PieChartParser(MOCK_DATA);
 
 const lableStyle = {
-  fontSize: "5px"
-}
+  fontSize: '5px',
+};
 
-export default function PieChartRender({title}) {
+export default function PieChartRender({ title }) {
   const myData = [
     finalResults.Bills,
     finalResults.Entertainment,
@@ -21,8 +21,11 @@ export default function PieChartRender({title}) {
 
   return (
     <div className="chart">
-      <div className="title"><h3>{title}</h3></div>
-      <PieChart className="pie_chart"
+      <div className="title">
+        <h3>{title}</h3>
+      </div>
+      <PieChart
+        className="pie_chart"
         // your data
         data={myData}
         // width and height of the view box
@@ -32,15 +35,20 @@ export default function PieChartRender({title}) {
         labelStyle={lableStyle}
       />
       <ul className="details">
-        {myData.slice(0,5).map((element) => {
-          return(
-          <li>
-          <span className="label">
-            <span style={{backgroundColor: `${element.color}`}} className="circle"></span><b>${element.value}</b><br/>
-            <p>{element.category}</p>
-          </span>
-          </li>
-          )
+        {myData.slice(0, 5).map(element => {
+          return (
+            <li key={element.value}>
+              <span className="label">
+                <span
+                  style={{ backgroundColor: `${element.color}` }}
+                  className="circle"
+                ></span>
+                <b>${element.value}</b>
+                <br />
+                <p>{element.category}</p>
+              </span>
+            </li>
+          );
         })}
       </ul>
     </div>

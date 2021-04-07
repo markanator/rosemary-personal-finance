@@ -1,49 +1,54 @@
-.title{
-    width: 100%;
-    text-align: left;
-    margin-bottom: 1.5rem;
+.title {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 1.5rem;
 }
 
-.chart{
-    /* width: 10%; */
-    margin: auto;
-    padding: 2rem;
-    flex-direction: column;
-    border: rgb(206, 206, 206) solid 2px;
-    border-radius: 2rem;
-    max-width: 475px;
-    max-height: 502px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.chart {
+  /* width: 10%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 475px;
+  max-height: 502px;
+  border: rgb(206, 206, 206) solid 2px;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin: auto;
 }
 
-.pie_chart{
-    width: 320px;
-    height: 320px;
+.pie_chart {
+  width: 320px;
+  height: 320px;
 }
 
-.details{
-    padding: 0px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    justify-content: space-around;
-    align-items: center;
-    font-size: .875rem;
-    margin-top: 2rem;
+.details {
+  padding: 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.875rem;
+  margin-top: 2rem;
 }
 
-.label p{
-    font-size: 12px;
+.details li {
+  margin-right: 0.125rem;
 }
 
-.circle{
-    background-color: lightgray;
-    border-radius: 50%;
-    display: inline-block;
-    height: 12px;
-    width: 12px;
-    margin-right: 3px;
+.label p {
+  font-size: 12px;
+}
+
+.circle {
+  background-color: lightgray;
+  border-radius: 50%;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  margin-right: 3px;
 }

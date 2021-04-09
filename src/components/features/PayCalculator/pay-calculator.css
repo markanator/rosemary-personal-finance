@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+.columns {
+  display: flex;
+  font-size: 30px;
+}
+
+.column {
+  font-size: 14px;
+  padding: 30px;
+  margin: 30px;
+  flex: 50%;
+}
+
+.result-column {
+  font-size: 14px;
+  padding: 30px;
+  margin: 50px;
+  flex: 50%;
+  background-color: #ededed;
+  width: 90px;
+  height: 200px;
+}
+
+p {
+  text-align: left;
+}
+
+h1 {
+  flex-direction: column;
+  display: flex;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+h4 {
+  flex-direction: column;
+  display: flex;
+  text-align: left;
+  padding-bottom: 10px;
+}

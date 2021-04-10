@@ -2,30 +2,22 @@
   box-sizing: border-box;
 }
 
-.columns {
+.section-text {
+  min-height: 80px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   display: flex;
-  font-size: 30px;
+  flex-direction: column;
 }
 
-.column {
-  font-size: 14px;
-  padding: 30px;
-  margin: 30px;
-  flex: 50%;
-}
-
-.result-column {
-  font-size: 14px;
-  padding: 30px;
-  margin: 50px;
-  flex: 50%;
-  background-color: #ededed;
-  width: 90px;
-  height: 200px;
-}
-
-p {
-  text-align: left;
+.section-box {
+  min-height: 80px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {

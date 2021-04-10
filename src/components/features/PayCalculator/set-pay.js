@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Settings from './set-pat-components/Settings';
-import ShiftTimes from './set-pat-components/ShiftTimes';
-import Results from './set-pat-components/Results';
+import Settings from './set-pay-components/Settings';
+import ShiftTimes from './set-pay-components/ShiftTimes';
+import Results from './set-pay-components/Results';
 
 class SetPay extends Component {
   constructor(props) {

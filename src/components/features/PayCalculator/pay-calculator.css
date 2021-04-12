@@ -10,8 +10,7 @@
   display: flex;
   flex-direction: column;
 }
-
-.section-box {
+s .section-box {
   min-height: 80px;
   align-items: center;
   justify-content: center;

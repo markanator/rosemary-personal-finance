@@ -85,23 +85,19 @@ class SetPay extends Component {
 
   render() {
     return (
-      <div className="body">
+      <div>
         <Settings
           setPayRate={this.setPayRate}
           setMultiplier={this.setMultiplier}
         />
-        <button className="clearBtn" onClick={this.clearSettings}>
-          Clear Settings
-        </button>
+        <button onClick={this.clearSettings}>Clear Settings</button>
         <ShiftTimes
           setStartTime={this.setStartTime}
           setStartBreak={this.setStartBreak}
           setEndBreak={this.setEndBreak}
           setEndTime={this.setEndTime}
         />
-        <button className="resetBtn" onClick={this.resetState}>
-          Reset Times
-        </button>
+        <button onClick={this.resetState}>Reset Times</button>
         <Results results={this.state} />
       </div>
     );

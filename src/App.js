@@ -12,10 +12,10 @@ function App() {
           <Home />
         </Route>
         <Route path="/dashboard">
-          <DashBoard/>
+          <DashBoard />
         </Route>
         <Route path="/transactions">
-          <Transaction/>
+          <Transaction />
         </Route>
         <Route>
           {/* make this into a single component */}

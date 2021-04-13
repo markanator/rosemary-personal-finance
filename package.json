@@ -15,6 +15,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
+    "react-minimal-pie-chart": "^8.2.0",
     "react-modal-video": "^1.2.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -25,8 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "prettier --check .",
-    "format": "prettier --write \"**/*.+(js|jsx|css)\""
+    "lint": "eslint src/**/*.{js,jsx} --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx}\""
   },
   "husky": {
     "hooks": {

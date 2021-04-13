@@ -1,9 +1,10 @@
-import React, { useMemo } from 'react';
-import { usePagination, useSortBy, useTable } from 'react-table';
-import MOCK_DATA from '../../../../tempData/trxList.json';
-import formatMoney from '../../../../utils/formatMoney';
-import { MainTableColumns } from './tableColumns';
-import './mainTrxTable.scss';
+/* eslint-disable react/jsx-key */
+import React, { useMemo } from "react";
+import { usePagination, useSortBy, useTable } from "react-table";
+import MOCK_DATA from "../../../../tempData/trxList.json";
+import formatMoney from "../../../../utils/formatMoney";
+import { MainTableColumns } from "./tableColumns";
+import "./mainTrxTable.scss";
 
 export default function FullTable() {
   let balance = 0;
@@ -11,7 +12,7 @@ export default function FullTable() {
 
   const data = useMemo(
     () =>
-      MOCK_DATA.map(trx => {
+      MOCK_DATA.map((trx) => {
         // eslint-disable-next-line
         balance += trx.trx_amount * 100;
         return {
@@ -40,7 +41,7 @@ export default function FullTable() {
       columns,
       data,
       initialState: {
-        sortBy: [{ id: 'trx_date', desc: true }],
+        sortBy: [{ id: "trx_date", desc: true }],
         pageIndex: 0,
         pageSize: 10,
       },
@@ -57,23 +58,23 @@ export default function FullTable() {
         </div>
         <table className="trx__table" {...getTableProps()}>
           <thead>
-            {headerGroups.map(headerGroup => (
+            {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map(column => (
+                {headerGroup.headers.map((column) => (
                   <th
                     {...column.getHeaderProps(column.getSortByToggleProps())}
                     className={`header-${column.Header.toLowerCase()}`}
                   >
-                    {column.render('Header')}
+                    {column.render("Header")}
                     <span>
                       {column.isSorted
                         ? column.isSortedDesc
-                          ? ' ▼'
-                          : ' ▲'
-                        : ''}
+                          ? " ▼"
+                          : " ▲"
+                        : ""}
                     </span>
                     <div>
-                      {column.canFilter ? column.render('Filter') : null}
+                      {column.canFilter ? column.render("Filter") : null}
                     </div>
                   </th>
                 ))}
@@ -81,13 +82,13 @@ export default function FullTable() {
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {page.map(row => {
+            {page.map((row) => {
               prepareRow(row);
               return (
                 <tr {...row.getRowProps()}>
-                  {row.cells.map(cell => {
+                  {row.cells.map((cell) => {
                     return (
-                      <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                     );
                   })}
                 </tr>
@@ -105,7 +106,7 @@ export default function FullTable() {
           </button>
           {pageOptions.map((page, idx) => (
             <button
-              className={`btn-primary ${pageIndex === idx ? 'active' : ''}`}
+              className={`btn-primary ${pageIndex === idx ? "active" : ""}`}
               key={page}
               onClick={() => gotoPage(idx)}
             >
@@ -118,7 +119,7 @@ export default function FullTable() {
             disabled={!canNextPage}
           >
             Next
-          </button>{' '}
+          </button>{" "}
         </div>
       </div>
     </>

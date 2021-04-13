@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 
 export default function ColumnFilter({ column }) {
@@ -5,7 +6,7 @@ export default function ColumnFilter({ column }) {
 
   const options = React.useMemo(() => {
     const options = new Set();
-    preFilteredRows.forEach(row => {
+    preFilteredRows.forEach((row) => {
       options.add(row.values[id]);
     });
     return [...options.values()];
@@ -14,7 +15,7 @@ export default function ColumnFilter({ column }) {
   return (
     <select
       value={filterValue}
-      onChange={e => {
+      onChange={(e) => {
         setFilter(e.target.value || undefined);
       }}
     >

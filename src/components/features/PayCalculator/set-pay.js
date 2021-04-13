@@ -21,7 +21,7 @@ class SetPay extends Component {
     this.initialState = this.state;
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     const savedPayRate = localStorage.getItem('pay_rate');
     const payRateInput = document.getElementById('pay_rate');
     const savedMultiplier = localStorage.getItem('multiplier');
@@ -35,53 +35,53 @@ class SetPay extends Component {
       multiplierInput.value = savedMultiplier;
       this.setState({ multiplier: savedMultiplier });
     }
-  };
+  }
 
-  clearSettings = () => {
+  clearSettings() {
     document.getElementById('settings').reset();
     localStorage.clear();
-  };
+  }
 
-  resetState = () => {
+  resetState() {
     this.setState(this.initialState);
     document.getElementById('shift_times').reset();
-  };
+  }
 
-  setPayRate = event => {
+  setPayRate(event) {
     this.setState({ pay_rate: event.target.value });
     localStorage.setItem('pay_rate', event.target.value);
-  };
+  }
 
-  setMultiplier = event => {
+  setMultiplier(event) {
     this.setState({ multiplier: event.target.value });
     localStorage.setItem('multiplier', event.target.value);
-  };
+  }
 
-  setStartTime = event => {
+  setStartTime(event) {
     this.setState({ start_time: event.target.value });
-  };
+  }
 
-  setStartBreak = event => {
+  setStartBreak(event) {
     var breaks = this.state.breaks;
     breaks[0] = {
       start_break: event.target.value,
       end_break: breaks[0].end_break,
     };
     this.setState({ breaks: breaks });
-  };
+  }
 
-  setEndBreak = event => {
+  setEndBreak(event) {
     var breaks = this.state.breaks;
     breaks[0] = {
       start_break: breaks[0].start_break,
       end_break: event.target.value,
     };
     this.setState({ breaks: breaks });
-  };
+  }
 
-  setEndTime = event => {
+  setEndTime(event) {
     this.setState({ end_time: event.target.value });
-  };
+  }
 
   render() {
     return (

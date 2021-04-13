@@ -1,7 +1,8 @@
 import React from 'react';
-import PieChartRender from '../components/common/dashboard_contents/pie-chart';
-import DashboardTableSection from '../components/features/dashboard/TransactionTableSm';
 import Layout from '../components/common/layout/layout';
+import DashboardTableSection from '../components/features/dashboard/TransactionTableSm';
+import PayCalculator from '../components/features/PayCalculator/pay-calculator';
+import PieChartRender from '../components/common/dashboard_contents/pie-chart';
 import '../styles/dashboard.css';
 
 export default function DashBoard() {
@@ -13,6 +14,7 @@ export default function DashBoard() {
           <PieChartRender title="Spending" />
         </div>
         <DashboardTableSection />
+        <PayCalculator />
       </section>
     </Layout>
   );

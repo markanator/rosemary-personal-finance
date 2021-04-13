@@ -1,0 +1,108 @@
+.transaction__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  .transaction__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .transaction__table {
+      width: 75%;
+      height: 100%;
+    }
+  }
+
+  .transaction__sidebar {
+    display: flex;
+    height: 100%;
+    height: calc(100vh - 150px);
+    min-height: 500px;
+
+    width: 25%;
+    background-color: #f9f9f9;
+
+    .sidebar__container {
+      width: 100%;
+      padding: 1.5rem;
+      h2 {
+        // margin: 1.5rem;
+        color: #b3b3b3;
+      }
+      hr {
+        width: 100%;
+        border: none;
+        height: 1px;
+        color: #e0e0e0;
+        background-color: #e0e0e0;
+      }
+    }
+  }
+
+  .sidebar__accounts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .account__box {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 220px;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background-color: white;
+      font-size: 0.875rem;
+      margin: 0.875rem;
+
+      .image {
+        display: flex;
+        border-radius: 0.65rem;
+        background-color: #e0e0e0;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .details__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+
+      .--main {
+        h4 {
+          color: #333;
+          padding-bottom: 0px;
+        }
+        p {
+          font-size: 0.5rem;
+          padding-top: 0px;
+          color: #949494;
+        }
+      }
+
+      .--arrow {
+        font-size: 1.25rem;
+        font-weight: 700;
+        padding-bottom: 0.5rem;
+      }
+    }
+  }
+}

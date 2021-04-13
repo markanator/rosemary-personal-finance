@@ -1,7 +1,7 @@
 $radius: 0.25rem;
 $tableHoverColor: #ddd;
 
-.dashtrxtable {
+.trx__table {
   width: 100%;
   border-collapse: collapse;
   border-radius: $radius;
@@ -37,14 +37,14 @@ $tableHoverColor: #ddd;
   }
 }
 
-.dashtrxtable thead tr th:first-child {
+.trx__table thead tr th:first-child {
   border-top-left-radius: $radius;
 }
-.dashtrxtable thead tr th:last-child {
+.trx__table thead tr th:last-child {
   border-top-right-radius: $radius;
 }
 
-.dashtrxtable th {
+.trx__table th {
   text-align: center;
   color: white;
   font-size: 1rem;
@@ -53,21 +53,21 @@ $tableHoverColor: #ddd;
   padding-bottom: 0.875rem;
 }
 
-.dashtrxtable td,
-.dashtrxtable th {
+.trx__table td,
+.trx__table th {
   padding: 1rem;
   text-align: center;
 }
-.dashtrxtable td {
+.trx__table td {
   font-size: 0.875rem;
   // font-weight: 500;
 }
 
-.dashtrxtable tr:hover {
+.trx__table tr:hover {
   background-color: $tableHoverColor;
 }
 
-.dashtrxtable tbody tr:last-child:hover {
+.trx__table tbody tr:last-child:hover {
   td:first-child {
     border-bottom-left-radius: $radius;
     // border-radius: $radius;

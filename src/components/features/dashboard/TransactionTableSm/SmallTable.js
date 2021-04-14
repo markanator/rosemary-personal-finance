@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-key */
-import React, { useMemo } from "react";
-import { usePagination, useSortBy, useTable } from "react-table";
-import MOCK_DATA from "../../../../tempData/trxList.json";
-import formatMoney from "../../../../utils/formatMoney";
-import { COLUMNS } from "./SmColumns";
+import React, { useMemo } from 'react';
+import { usePagination, useSortBy, useTable } from 'react-table';
+import MOCK_DATA from '../../../../tempData/trxList.json';
+import formatMoney from '../../../../utils/formatMoney';
+import { COLUMNS } from './SmColumns';
 
 export default function SmallTable() {
   let balance = 0;
@@ -28,7 +28,7 @@ export default function SmallTable() {
       columns,
       data,
       initialState: {
-        sortBy: [{ id: "trx_date", desc: true }],
+        sortBy: [{ id: 'trx_date', desc: true }],
         pageIndex: 0,
         pageSize: 5,
       },
@@ -76,16 +76,16 @@ export default function SmallTable() {
                     {...column.getHeaderProps(column.getSortByToggleProps())}
                     className={`header-${column.Header.toLowerCase()}`}
                   >
-                    {column.render("Header")}
+                    {column.render('Header')}
                     <span>
                       {column.isSorted
                         ? column.isSortedDesc
-                          ? " ▼"
-                          : " ▲"
-                        : ""}
+                          ? ' ▼'
+                          : ' ▲'
+                        : ''}
                     </span>
                     <div>
-                      {column.canFilter ? column.render("Filter") : null}
+                      {column.canFilter ? column.render('Filter') : null}
                     </div>
                   </th>
                 ))}
@@ -99,7 +99,7 @@ export default function SmallTable() {
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell) => {
                     return (
-                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                      <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                     );
                   })}
                 </tr>
@@ -118,7 +118,7 @@ export default function SmallTable() {
         </button>
         {pageOptions.map((page, idx) => (
           <button
-            className={`btn-primary ${pageIndex === idx ? "active" : ""}`}
+            className={`btn-primary ${pageIndex === idx ? 'active' : ''}`}
             key={page}
             onClick={() => gotoPage(idx)}
           >
@@ -131,7 +131,7 @@ export default function SmallTable() {
           disabled={!canNextPage}
         >
           Next
-        </button>{" "}
+        </button>{' '}
       </div>
     </div>
   );

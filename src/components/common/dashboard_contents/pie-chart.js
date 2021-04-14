@@ -35,7 +35,7 @@ export default function PieChartRender({ title }) {
         labelStyle={lableStyle}
       />
       <ul className="details">
-        {myData.slice(0, 5).map(element => {
+        {myData.slice(0, 5).map((element) => {
           return (
             <li key={element.value}>
               <span className="label">

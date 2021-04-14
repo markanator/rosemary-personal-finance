@@ -1,7 +1,7 @@
-import React from "react";
-import Layout from "../components/common/layout/layout";
-import FullTable from "../components/features/transactionsPage/MainTable";
-import formatMoney from "../utils/formatMoney";
+import React from 'react';
+import Layout from '../components/common/layout/layout';
+import FullTable from '../components/features/transactionsPage/MainTable';
+import formatMoney from '../utils/formatMoney';
 
 export default function Transaction() {
   return (

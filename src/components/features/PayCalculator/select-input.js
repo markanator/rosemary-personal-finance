@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import './select-input.css';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -22,11 +22,11 @@ export default function SimpleSelect() {
   const [month, setMonth] = React.useState('');
   const [year, setYear] = React.useState('');
 
-  const handleChangeMonth = event => {
+  const handleChangeMonth = (event) => {
     setMonth(event.target.value);
   };
 
-  const handleChangeYear = event => {
+  const handleChangeYear = (event) => {
     setYear(event.target.value);
   };
 

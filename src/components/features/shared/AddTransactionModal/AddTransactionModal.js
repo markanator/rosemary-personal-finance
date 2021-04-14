@@ -7,7 +7,6 @@ import {
   Input,
   InputAdornment,
   InputLabel,
-  makeStyles,
   Modal,
   Paper,
   Select,
@@ -16,60 +15,11 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import * as yup from 'yup';
-
-const AddTrxSchema = yup.object().shape({
-  trxType: yup.string().required('Required.'),
-  trxDate: yup.date().required('Required.'),
-  trxDetails: yup
-    .string()
-    .min(4, 'Too short.')
-    .max(33, 'Too long.')
-    .required('Required.'),
-  trxCategory: yup.string().required('Required.'),
-  trxAmount: yup.number().required('Required.'),
-  trxBank: yup.string().required('Required.'),
-});
-
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '775px',
-    backgroundColor: theme.palette.background.paper,
-    // padding: theme.spacing(2, 4, 3),
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-  },
-  input: {
-    width: '300px',
-  },
-  formControls: {
-    marginBottom: '1.5rem',
-  },
-  grid: {
-    padding: '2rem',
-  },
-  headergrid: {
-    marginBottom: '1rem',
-  },
-  footerGrid: {
-    display: 'flex',
-    flexDirection: 'row-reverse',
-    width: '100%',
-    marginTop: '1rem',
-    justifyContent: 'space-evenly',
-  },
-}));
+import { AddTrxSchema } from './AddTrxSchema';
+import { useAddTrxStyles } from './muiFormStyle';
 
 export default function AddTransactionModal({ handleClose, open }) {
-  const classes = useStyles();
+  const classes = useAddTrxStyles();
   const {
     handleSubmit,
     watch,

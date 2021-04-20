@@ -1,9 +1,7 @@
 import React from 'react';
 // import style from './Settings.module.css';
 
-const Settings = (props) => {
-  const { setPayRate, setMultiplier } = props;
-
+const Settings = ({ setPayRate, setMultiplier }) => {
   return (
     <div className="settings flexItem">
       <h3>Pay Rate</h3>
@@ -17,7 +15,7 @@ const Settings = (props) => {
             placeholder="10.00"
             min="10.00"
             max="100.00"
-            step="0.01"
+            step="0.05"
           />
         </div>
         <br />

@@ -3,19 +3,21 @@ import Settings from './set-pay-components/Settings';
 import ShiftTimes from './set-pay-components/ShiftTimes';
 import Results from './set-pay-components/Results';
 
+const initialState = {
+  pay_rate: 0,
+  multiplier: 1,
+  start_time: '',
+  breaks: [
+    {
+      start_break: '',
+      end_break: '',
+    },
+  ],
+  end_time: '',
+};
+
 const SetPay = () => {
-  const [payState, setPayState] = useState({
-    pay_rate: 0,
-    multiplier: 1,
-    start_time: '',
-    breaks: [
-      {
-        start_break: '',
-        end_break: '',
-      },
-    ],
-    end_time: '',
-  });
+  const [payState, setPayState] = useState({ ...initialState });
 
   useEffect(() => {
     const savedPayRate = localStorage.getItem('pay_rate');
@@ -25,11 +27,11 @@ const SetPay = () => {
 
     if (savedPayRate !== null) {
       payRateInput.value = savedPayRate;
-      setPayState({ pay_rate: savedPayRate });
+      setPayState({ ...payState, pay_rate: savedPayRate });
     }
     if (savedMultiplier !== null) {
       multiplierInput.value = savedMultiplier;
-      setPayState({ multiplier: savedMultiplier });
+      setPayState({ ...payState, multiplier: savedMultiplier });
     }
   }, []);
 
@@ -39,22 +41,22 @@ const SetPay = () => {
   };
 
   const resetState = () => {
-    setPayState(this.initialState);
+    setPayState(initialState);
     document.getElementById('shift_times').reset();
   };
 
   const setPayRate = (event) => {
-    setPayState({ pay_rate: event.target.value });
+    setPayState({ ...payState, pay_rate: event.target.value });
     localStorage.setItem('pay_rate', event.target.value);
   };
 
   const setMultiplier = (event) => {
-    setPayState({ multiplier: event.target.value });
+    setPayState({ ...payState, multiplier: event.target.value });
     localStorage.setItem('multiplier', event.target.value);
   };
 
   const setStartTime = (event) => {
-    setPayState({ start_time: event.target.value });
+    setPayState({ ...payState, start_time: event.target.value });
   };
 
   const setStartBreak = (event) => {
@@ -63,7 +65,7 @@ const SetPay = () => {
       start_break: event.target.value,
       end_break: breaks[0].end_break,
     };
-    setPayState({ breaks: breaks });
+    setPayState({ ...payState, breaks: breaks });
   };
 
   const setEndBreak = (event) => {
@@ -72,11 +74,11 @@ const SetPay = () => {
       start_break: breaks[0].start_break,
       end_break: event.target.value,
     };
-    setPayState({ breaks: breaks });
+    setPayState({ ...payState, breaks: breaks });
   };
 
   const setEndTime = (event) => {
-    setPayState({ end_time: event.target.value });
+    setPayState({ ...payState, end_time: event.target.value });
   };
 
   return (

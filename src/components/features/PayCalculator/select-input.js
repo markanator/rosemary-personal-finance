@@ -44,7 +44,6 @@ export default function SimpleSelect() {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-
           <MenuItem value="January">January</MenuItem>
           <MenuItem value="February">February</MenuItem>
           <MenuItem value="March">March</MenuItem>
@@ -72,8 +71,6 @@ export default function SimpleSelect() {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={2018}>2018</MenuItem>
-          <MenuItem value={2019}>2019</MenuItem>
           <MenuItem value={2020}>2020</MenuItem>
           <MenuItem value={2021}>2021</MenuItem>
           <MenuItem value={2022}>2022</MenuItem>

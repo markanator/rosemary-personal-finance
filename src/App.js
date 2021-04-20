@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Layout from './components/common/layout/layout';
 import DashBoard from './pages/dashboard';
 import Test from './pages/fireStoreTest';
@@ -7,7 +7,7 @@ import Transaction from './pages/transaction';
 
 function App() {
   return (
-    <div>
+    <>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -29,7 +29,7 @@ function App() {
           </Layout>
         </Route>
       </Switch>
-    </div>
+    </>
   );
 }
 

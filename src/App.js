@@ -1,6 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 import Layout from './components/common/layout/layout';
 import DashBoard from './pages/dashboard';
+import Test from './pages/fireStoreTest';
 import Home from './pages/home';
 import Transaction from './pages/transaction';
 
@@ -16,6 +17,9 @@ function App() {
         </Route>
         <Route path="/transactions">
           <Transaction />
+        </Route>
+        <Route path="/test">
+          <Test />
         </Route>
         <Route>
           {/* make this into a single component */}

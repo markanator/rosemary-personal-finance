@@ -2,6 +2,12 @@
 
 A simple modern checkbook balancer for the modern frugalist with helpful insights and wage calculators.
 
+## PROG 455 - APP Development Team
+
+<a href="https://github.com/markanator/rosemary-personal-finance/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=markanator/rosemary-personal-finance" />
+</a>
+
 ## ENV variables needed
 
 ```js

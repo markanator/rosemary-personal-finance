@@ -1,27 +1,23 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import Settings from './set-pay-components/Settings';
 import ShiftTimes from './set-pay-components/ShiftTimes';
 import Results from './set-pay-components/Results';
 
-class SetPay extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pay_rate: 0,
-      multiplier: 1,
-      start_time: '',
-      breaks: [
-        {
-          start_break: '',
-          end_break: '',
-        },
-      ],
-      end_time: '',
-    };
-    this.initialState = this.state;
-  }
+const SetPay = () => {
+  const [payState, setPayState] = useState({
+    pay_rate: 0,
+    multiplier: 1,
+    start_time: '',
+    breaks: [
+      {
+        start_break: '',
+        end_break: '',
+      },
+    ],
+    end_time: '',
+  });
 
-  componentDidMount() {
+  useEffect(() => {
     const savedPayRate = localStorage.getItem('pay_rate');
     const payRateInput = document.getElementById('pay_rate');
     const savedMultiplier = localStorage.getItem('multiplier');
@@ -29,79 +25,74 @@ class SetPay extends Component {
 
     if (savedPayRate !== null) {
       payRateInput.value = savedPayRate;
-      this.setState({ pay_rate: savedPayRate });
+      setPayState({ pay_rate: savedPayRate });
     }
     if (savedMultiplier !== null) {
       multiplierInput.value = savedMultiplier;
-      this.setState({ multiplier: savedMultiplier });
+      setPayState({ multiplier: savedMultiplier });
     }
-  }
+  }, []);
 
-  clearSettings() {
+  const clearSettings = () => {
     document.getElementById('settings').reset();
     localStorage.clear();
-  }
+  };
 
-  resetState() {
-    this.setState(this.initialState);
+  const resetState = () => {
+    setPayState(this.initialState);
     document.getElementById('shift_times').reset();
-  }
+  };
 
-  setPayRate(event) {
-    this.setState({ pay_rate: event.target.value });
+  const setPayRate = (event) => {
+    setPayState({ pay_rate: event.target.value });
     localStorage.setItem('pay_rate', event.target.value);
-  }
+  };
 
-  setMultiplier(event) {
-    this.setState({ multiplier: event.target.value });
+  const setMultiplier = (event) => {
+    setPayState({ multiplier: event.target.value });
     localStorage.setItem('multiplier', event.target.value);
-  }
+  };
 
-  setStartTime(event) {
-    this.setState({ start_time: event.target.value });
-  }
+  const setStartTime = (event) => {
+    setPayState({ start_time: event.target.value });
+  };
 
-  setStartBreak(event) {
-    var breaks = this.state.breaks;
+  const setStartBreak = (event) => {
+    var breaks = payState.breaks;
     breaks[0] = {
       start_break: event.target.value,
       end_break: breaks[0].end_break,
     };
-    this.setState({ breaks: breaks });
-  }
+    setPayState({ breaks: breaks });
+  };
 
-  setEndBreak(event) {
-    var breaks = this.state.breaks;
+  const setEndBreak = (event) => {
+    var breaks = payState.breaks;
     breaks[0] = {
       start_break: breaks[0].start_break,
       end_break: event.target.value,
     };
-    this.setState({ breaks: breaks });
-  }
+    setPayState({ breaks: breaks });
+  };
 
-  setEndTime(event) {
-    this.setState({ end_time: event.target.value });
-  }
+  const setEndTime = (event) => {
+    setPayState({ end_time: event.target.value });
+  };
 
-  render() {
-    return (
-      <div>
-        <Settings
-          setPayRate={this.setPayRate}
-          setMultiplier={this.setMultiplier}
-        />
-        <button onClick={this.clearSettings}>Clear Settings</button>
-        <ShiftTimes
-          setStartTime={this.setStartTime}
-          setStartBreak={this.setStartBreak}
-          setEndBreak={this.setEndBreak}
-          setEndTime={this.setEndTime}
-        />
-        <button onClick={this.resetState}>Reset Times</button>
-        <Results results={this.state} />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Settings setPayRate={setPayRate} setMultiplier={setMultiplier} />
+      <button onClick={clearSettings}>Clear Settings</button>
+      <ShiftTimes
+        setStartTime={setStartTime}
+        setStartBreak={setStartBreak}
+        setEndBreak={setEndBreak}
+        setEndTime={setEndTime}
+      />
+      <button onClick={resetState}>Reset Times</button>
+      <Results results={payState} />
+    </div>
+  );
+};
 
 export default SetPay;

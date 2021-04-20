@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React from "react";
+import React from 'react';
 
 export default function ColumnFilter({ column }) {
   const { filterValue, setFilter, preFilteredRows, id } = column;

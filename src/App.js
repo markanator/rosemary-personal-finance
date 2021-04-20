@@ -2,25 +2,27 @@ import { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Layout from './components/common/layout/layout';
 
-const Home = lazy(() => import('./pages/home'));
-const DashBoard = lazy(() => import('./pages/dashboard'));
-const Transaction = lazy(() => import('./pages/transaction'));
+import DashBoard from './pages/dashboard';
+import Test from './pages/fireStoreTest';
+import Home from './pages/home';
+import Transaction from './pages/transaction';
 
 function App() {
   return (
     <>
       <Switch>
-        <Suspense fallback={<div>loading...</div>}>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/dashboard">
-            <DashBoard />
-          </Route>
-          <Route path="/transactions">
-            <Transaction />
-          </Route>
-        </Suspense>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/dashboard">
+          <DashBoard />
+        </Route>
+        <Route path="/transactions">
+          <Transaction />
+        </Route>
+        <Route path="/test">
+          <Test />
+        </Route>
         <Route>
           {/* make this into a single component */}
           <Layout>

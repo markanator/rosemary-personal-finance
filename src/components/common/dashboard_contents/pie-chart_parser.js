@@ -34,7 +34,7 @@ export default function PieChartParser(arrayOfData) {
 
   let totalSum = 0;
 
-  arrayOfData.forEach(element => {
+  arrayOfData.forEach((element) => {
     // adding values to finalresults array
     switch (element.trx_category) {
       case 'Entertainment':

@@ -1,11 +1,13 @@
 /* eslint-disable react/jsx-key */
-import React, { useMemo } from "react";
-import { usePagination, useSortBy, useTable } from "react-table";
-import MOCK_DATA from "../../../../tempData/trxList.json";
-import formatMoney from "../../../../utils/formatMoney";
-import { COLUMNS } from "./SmColumns";
+import React, { useMemo, useState } from 'react';
+import { usePagination, useSortBy, useTable } from 'react-table';
+import MOCK_DATA from '../../../../tempData/trxList.json';
+import formatMoney from '../../../../utils/formatMoney';
+import AddTransactionModal from '../../shared/AddTransactionModal/AddTransactionModal';
+import { COLUMNS } from './SmColumns';
 
 export default function SmallTable() {
+  const [open, setOpen] = useState(false);
   let balance = 0;
   // memoize data to prevent excessive renders
   const columns = useMemo(() => COLUMNS, []);
@@ -28,7 +30,7 @@ export default function SmallTable() {
       columns,
       data,
       initialState: {
-        sortBy: [{ id: "trx_date", desc: true }],
+        sortBy: [{ id: 'trx_date', desc: true }],
         pageIndex: 0,
         pageSize: 5,
       },
@@ -52,6 +54,14 @@ export default function SmallTable() {
     state: { pageIndex },
   } = tableInstance;
 
+  const OpenAddTrxModal = () => {
+    setOpen(true);
+  };
+
+  const CloseAddTrxModal = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="trx__component">
       <div className="trx__adjust">
@@ -63,7 +73,9 @@ export default function SmallTable() {
           {/*
           // TODO:: ADD MODAL TO add a transaction
           */}
-          <button className="btn-primary">Add Transaction</button>
+          <button className="btn-primary" onClick={OpenAddTrxModal}>
+            Add Transaction
+          </button>
         </div>
       </div>
       <div className="--trxwrapper">
@@ -76,16 +88,16 @@ export default function SmallTable() {
                     {...column.getHeaderProps(column.getSortByToggleProps())}
                     className={`header-${column.Header.toLowerCase()}`}
                   >
-                    {column.render("Header")}
+                    {column.render('Header')}
                     <span>
                       {column.isSorted
                         ? column.isSortedDesc
-                          ? " ▼"
-                          : " ▲"
-                        : ""}
+                          ? ' ▼'
+                          : ' ▲'
+                        : ''}
                     </span>
                     <div>
-                      {column.canFilter ? column.render("Filter") : null}
+                      {column.canFilter ? column.render('Filter') : null}
                     </div>
                   </th>
                 ))}
@@ -99,7 +111,7 @@ export default function SmallTable() {
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell) => {
                     return (
-                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                      <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                     );
                   })}
                 </tr>
@@ -118,7 +130,7 @@ export default function SmallTable() {
         </button>
         {pageOptions.map((page, idx) => (
           <button
-            className={`btn-primary ${pageIndex === idx ? "active" : ""}`}
+            className={`btn-primary ${pageIndex === idx ? 'active' : ''}`}
             key={page}
             onClick={() => gotoPage(idx)}
           >
@@ -131,8 +143,9 @@ export default function SmallTable() {
           disabled={!canNextPage}
         >
           Next
-        </button>{" "}
+        </button>{' '}
       </div>
+      <AddTransactionModal handleClose={CloseAddTrxModal} open={open} />
     </div>
   );
 }

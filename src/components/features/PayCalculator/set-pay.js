@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Settings from './set-pay-components/Settings';
 import ShiftTimes from './set-pay-components/ShiftTimes';
 import Results from './set-pay-components/Results';
+import './set-pay.css';
+//references code: https://github.com/lyjacky11/timesheet-react
 
 class SetPay extends Component {
   constructor(props) {
@@ -9,6 +11,7 @@ class SetPay extends Component {
     this.state = {
       pay_rate: 0,
       multiplier: 1,
+      planning: '',
       start_time: '',
       breaks: [
         {
@@ -83,22 +86,33 @@ class SetPay extends Component {
     this.setState({ end_time: event.target.value });
   };
 
+  setPlanning = event => {
+    this.setState({ palnning: event.target.value });
+  };
+
   render() {
     return (
-      <div>
+      <div className="container">
         <Settings
           setPayRate={this.setPayRate}
           setMultiplier={this.setMultiplier}
         />
         <button onClick={this.clearSettings}>Clear Settings</button>
-        <ShiftTimes
-          setStartTime={this.setStartTime}
-          setStartBreak={this.setStartBreak}
-          setEndBreak={this.setEndBreak}
-          setEndTime={this.setEndTime}
-        />
-        <button onClick={this.resetState}>Reset Times</button>
-        <Results results={this.state} />
+
+        <div className="section">
+          <ShiftTimes
+            setStartTime={this.setStartTime}
+            setStartBreak={this.setStartBreak}
+            setEndBreak={this.setEndBreak}
+            setEndTime={this.setEndTime}
+          />
+          <button onClick={this.resetState}>Reset Times</button>
+        </div>
+
+        <div className="section">
+          {' '}
+          <Results results={this.state} planning={this.state} />
+        </div>
       </div>
     );
   }

@@ -89,14 +89,17 @@ class Results extends Component {
     const data = this.calculateHours(results);
 
     return (
-      <div className="results flexItem">
+      <div>
         <h3>Results</h3>
         <p id="hours_worked">
           Hours Worked: {data.hoursWorked}h {data.minutesWorked}m |{' '}
           {data.totalWorkHours} hours
         </p>
 
-        <p id="gross_pay">Gross Pay: ${data.totalAmount}</p>
+        <p id="gross_pay">Gross Pay: ${data.totalAmount} </p>
+
+        <p>We recommend the popular 50/30/20 budget: {this.calculateBudget} </p>
+        <p>{/* needs:${data.planAmount} wants:${} savings:${}{' '} */}</p>
       </div>
     );
   }

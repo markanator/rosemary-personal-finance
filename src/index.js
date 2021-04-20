@@ -7,6 +7,7 @@ import App from './App';
 import './styles/globalStyles.css';
 import './styles/cssreset.css';
 import './styles/index.scss';
+import { db } from './data/firebase';
 
 ReactDOM.render(
   <Router>
@@ -14,3 +15,5 @@ ReactDOM.render(
   </Router>,
   document.getElementById('root')
 );
+
+console.log(db);

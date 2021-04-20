@@ -2,9 +2,62 @@
 import React, { useState } from 'react';
 import { FaPlayCircle } from 'react-icons/fa';
 import ModalVideo from 'react-modal-video';
+import { auth, provider } from '../../../data/firebase';
 import './home_hero.scss';
 
 export default function HomeHero() {
+  const [userState, setUserState] = useState({
+    user: null,
+    isLoading: false,
+    isSigningIn: false,
+    error: null
+  })
+
+
+  const signIn = async () => {
+    try {
+      const credentials = await auth.signInWithPopup(provider);
+      console.log("Signed in");
+      console.log(credentials);
+
+      const {displayName, uid} = credentials.user;
+      console.log(`Welcome ${displayName} ${uid}`);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const signOut = async () => {
+    try {
+      await auth.signOut();
+      console.log("signed out");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  let contents;
+  if (userState.isSignedIn) {
+    constents = (
+      <>
+      <button type="button" className="--signup" onClick={signOut}>
+        {userState.isLoading ? "Signing Out..." : "Sign Out"}
+      </button>
+      </>
+    )
+  } else { 
+    constents = (
+      <>
+      <button type="button" className="--signup" onClick={signIn}>
+        Sign In
+      </button>
+      </>
+    )
+  }
+
+
+
+
   const [openModal, setOpenModal] = useState(false);
   return (
     <section>
@@ -33,9 +86,8 @@ export default function HomeHero() {
                 nam no suscipit quaerendum. At nam minimum ponderum. Est audiam
                 animal molestiae te. Ex duo eripuit mentitum.
               </p>
-              <button type="button" className="--signup">
-                Sign Up
-              </button>
+              {contents}
+
             </div>
           </div>
         </div>

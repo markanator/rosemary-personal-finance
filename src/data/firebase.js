@@ -1,6 +1,10 @@
-import firebase from "firebase";
+// Brings in the core functionality:
+import firebase from "firebase/app";
+
+// Brings in the specific services we want to use:
 import "firebase/firestore";
-// TODO: this shouldn't be directly in our source code. we don't want to commit this to GitHub
+import "firebase/auth";
+
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -8,17 +12,21 @@ const firebaseConfig = {
     storageBucket: process.env.REACT_APP_BUCKET,
     messagingSenderId: process.env.REACT_APP_MESSAGING_ID,
     appId: process.env.REACT_APP_APP_ID,
-};
+  };
 
-if(!firebaseConfig.apiKey) throw new Error("Missing firebase credential: apiKey");
-if(!firebaseConfig.authDomain) throw new Error("Missing firebase credential: authDomain");
-if(!firebaseConfig.projectId) throw new Error("Missing firebase credential: projectId");
-if(!firebaseConfig.storageBucket) throw new Error("Missing firebase credential: storageBucket");
-if(!firebaseConfig.messagingSenderId) throw new Error("Missing firebase credential: messagingSenderId");
-if(!firebaseConfig.appId) throw new Error("Missing firebase credential: appId");
+  if (!firebaseConfig.apiKey) throw new Error("Missing firebase credential: apiKey");
+  if (!firebaseConfig.authDomain) throw new Error("Missing firebase credential: authDomain");
+  if (!firebaseConfig.projectId) throw new Error("Missing firebase credential: projectId");
+  if (!firebaseConfig.storageBucket) throw new Error("Missing firebase credential: storageBucket");
+  if (!firebaseConfig.messagingSenderId) throw new Error("Missing firebase credential: messagingSenderId");
+  if (!firebaseConfig.appId) throw new Error("Missing firebase credential: appId");
 
-firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 
-const db = firebase.firestore();
+  const db = firebase.firestore();
+  const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
 
-export {db, firebase};
+
+
+  export {db, auth, provider, firebase};

@@ -20,7 +20,6 @@ const firebaseConfig = {
   if (!firebaseConfig.storageBucket) throw new Error("Missing firebase credential: storageBucket");
   if (!firebaseConfig.messagingSenderId) throw new Error("Missing firebase credential: messagingSenderId");
   if (!firebaseConfig.appId) throw new Error("Missing firebase credential: appId");
-  //if (!firebaseConfig.measurementId) throw new Error("Missing firebase credential: measurementId");
 
   firebase.initializeApp(firebaseConfig);
 

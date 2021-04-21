@@ -1,11 +1,13 @@
 /* eslint-disable react/jsx-key */
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { usePagination, useSortBy, useTable } from 'react-table';
 import MOCK_DATA from '../../../../tempData/trxList.json';
 import formatMoney from '../../../../utils/formatMoney';
+import AddTransactionModal from '../../shared/AddTransactionModal/AddTransactionModal';
 import { COLUMNS } from './SmColumns';
 
 export default function SmallTable() {
+  const [open, setOpen] = useState(false);
   let balance = 0;
   // memoize data to prevent excessive renders
   const columns = useMemo(() => COLUMNS, []);
@@ -52,6 +54,14 @@ export default function SmallTable() {
     state: { pageIndex },
   } = tableInstance;
 
+  const OpenAddTrxModal = () => {
+    setOpen(true);
+  };
+
+  const CloseAddTrxModal = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="trx__component">
       <div className="trx__adjust">
@@ -63,7 +73,9 @@ export default function SmallTable() {
           {/*
           // TODO:: ADD MODAL TO add a transaction
           */}
-          <button className="btn-primary">Add Transaction</button>
+          <button className="btn-primary" onClick={OpenAddTrxModal}>
+            Add Transaction
+          </button>
         </div>
       </div>
       <div className="--trxwrapper">
@@ -133,6 +145,7 @@ export default function SmallTable() {
           Next
         </button>{' '}
       </div>
+      <AddTransactionModal handleClose={CloseAddTrxModal} open={open} />
     </div>
   );
 }

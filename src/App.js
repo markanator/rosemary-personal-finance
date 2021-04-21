@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Layout from './components/common/layout/layout';
 import { auth } from './data/firebase';
 import DashBoard from './pages/dashboard';
+import Test from './pages/fireStoreTest';
 import Home from './pages/home';
 import Transaction from './pages/transaction';
 
@@ -18,7 +19,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -26,10 +27,12 @@ function App() {
          <Route path="/dashboard">
            {isAuthenticated ? <DashBoard /> : <Redirect to="/" />}
         </Route>
-
          <Route path="/transactions">
            {isAuthenticated ? <Transaction /> : <Redirect to="/" />}
         </Route> 
+        <Route path="/test">
+          <Test />
+        </Route>
         <Route>
           {/* make this into a single component */}
           <Layout>
@@ -38,7 +41,7 @@ function App() {
           </Layout>
         </Route>
       </Switch>
-    </div>
+    </>
   );
 }
 

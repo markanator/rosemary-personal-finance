@@ -8,7 +8,12 @@ export default function TopNavBar() {
       <nav className="navbar__main">
         <div className="navbar__logo_wrapper">
           <Link to="/">
-            <img src="/assets/images/logo.png" alt="rosemary" />
+            <img
+              src="/assets/images/logo.png"
+              height="auto"
+              width="50px"
+              alt="rosemary"
+            />
           </Link>
         </div>
         <ul className="navbar__navlist">

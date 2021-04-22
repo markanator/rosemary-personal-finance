@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.875rem;
+  font-weight: bold;
+  padding-top: 1rem;
+}
+
+.team__section {
+  display: grid;
+  width: 100%;
+  background-color: rgb(235, 235, 235);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-list li {
+  padding: 1rem;
+  float: none;
+  width: 24.99999%;
+  text-align: center;
+}
+
+.team-list_name {
+  padding: 1rem;
+  font-size: larger;
+}
+
+.team-list_description {
+  font-size: medium;
+}
+
+.team-list_profile {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}

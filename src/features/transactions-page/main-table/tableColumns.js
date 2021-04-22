@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import formatMoney from '../../../../utils/formatMoney';
+import formatMoney from '../../../utils/formatMoney';
 
 export const MainTableColumns = [
   {

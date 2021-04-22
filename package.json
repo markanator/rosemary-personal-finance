@@ -31,11 +31,6 @@
     "lint": "eslint src/**/*.{js,jsx} --fix",
     "format": "prettier --write \"src/**/*.{js,jsx}\""
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
       "eslint --fix",

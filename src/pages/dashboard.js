@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from '../components/common/layout/layout';
-import DashboardTableSection from '../components/features/dashboard/TransactionTableSm';
-import PayCalculator from '../components/features/PayCalculator/pay-calculator';
-import PieChartRender from '../components/common/dashboard_contents/pie-chart';
-import '../styles/dashboard.css';
+
+import PieChartRender from '../features/dashboard/PieChartParser/pie-chart';
+import DashboardTableSection from '../features/dashboard/TransactionTableSm';
+import PayCalculator from '../features/dashboard/pay-calculator/pay-calculator';
 
 export default function DashBoard() {
   return (

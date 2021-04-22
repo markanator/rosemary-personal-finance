@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-key */
 import React, { useMemo } from 'react';
 import { usePagination, useSortBy, useTable } from 'react-table';
-import MOCK_DATA from '../../../../tempData/trxList.json';
-import formatMoney from '../../../../utils/formatMoney';
-import { MainTableColumns } from './tableColumns';
+import MOCK_DATA from '../../../tempData/trxList.json';
+import formatMoney from '../../../utils/formatMoney';
+import { MainTableColumns } from './table-columns';
 import './mainTrxTable.scss';
 
 export default function FullTable() {

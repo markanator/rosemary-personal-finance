@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import formatMoney from '../../../../utils/formatMoney';
-import ColumnFilter from './ColumnFilter';
+import formatMoney from '../../../utils/formatMoney';
+import ColumnFilter from './column-filter';
 
 export const COLUMNS = [
   {

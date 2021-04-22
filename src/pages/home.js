@@ -1,8 +1,8 @@
 import React from 'react';
-import HomeFeatures from '../components/common/homepage_contents/home-features';
-import HomeHero from '../components/common/homepage_contents/home-hero';
-import TeamSection from '../components/common/homepage_contents/team_section';
 import Layout from '../components/common/layout/layout';
+import HomeHero from '../features/homepage/home-hero';
+import HomeFeatures from '../features/homepage/home-features';
+import TeamSection from '../features/homepage/team_section';
 
 export default function Home() {
   return (

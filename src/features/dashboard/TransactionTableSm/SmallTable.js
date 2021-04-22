@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-key */
 import React, { useMemo, useState } from 'react';
 import { usePagination, useSortBy, useTable } from 'react-table';
-import MOCK_DATA from '../../../../tempData/trxList.json';
-import formatMoney from '../../../../utils/formatMoney';
-import AddTransactionModal from '../../shared/AddTransactionModal/AddTransactionModal';
+import MOCK_DATA from '../../../tempData/trxList.json';
+import AddTransactionModal from '../../../components/AddTransactionModal';
+import formatMoney from '../../../utils/formatMoney';
 import { COLUMNS } from './SmColumns';
 
 export default function SmallTable() {

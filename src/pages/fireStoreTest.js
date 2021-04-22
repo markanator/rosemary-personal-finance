@@ -1,11 +1,11 @@
 import React from 'react';
-import GetTransaction from '../components/common/fireStore/get-transactions';
 import Layout from '../components/common/layout/layout';
+import GetTransaction from '../features/fireStore/get-transactions';
 
 export default function Test() {
   return (
     <Layout>
-      <GetTransaction/>
+      <GetTransaction />
     </Layout>
   );
 }

@@ -1,1 +1,1 @@
-export { default } from './FullTable';
+export { default } from './full-table';

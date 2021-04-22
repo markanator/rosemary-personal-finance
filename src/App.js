@@ -1,7 +1,7 @@
 import { Route, Switch } from 'react-router-dom';
-import Layout from './components/common/layout/layout';
 import { RosemaryContextProvider } from './data/hooks/AppContext';
 import DashBoard from './pages/dashboard';
+import Error from './pages/Error';
 import Test from './pages/fireStoreTest';
 import Home from './pages/home';
 import Transaction from './pages/transaction';
@@ -24,11 +24,7 @@ function App() {
           <Test />
         </Route>
         <Route>
-          {/* make this into a single component */}
-          <Layout>
-            <h1>Error</h1>
-            <p>Page does not exists.</p>
-          </Layout>
+          <Error />
         </Route>
       </Switch>
     </>

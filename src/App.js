@@ -1,22 +1,15 @@
-import { useEffect, useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Layout from './components/common/layout/layout';
-import { auth } from './data/firebase';
+import useAppContext, {
+  RosemaryContextProvider,
+} from './data/hooks/AppContext';
 import DashBoard from './pages/dashboard';
 import Test from './pages/fireStoreTest';
 import Home from './pages/home';
 import Transaction from './pages/transaction';
 
 function App() {
-  const [user, setUser] = useState(null);
-  const isAuthenticated = user !== null;
-  
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
-      setUser(currentUser);
-    });
-    return unsubscribe;
-  }, []);
+  const userState = useAppContext();
 
   return (
     <>
@@ -24,12 +17,12 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-         <Route path="/dashboard">
-           {isAuthenticated ? <DashBoard /> : <Redirect to="/" />}
+        <Route path="/dashboard">
+          {userState.isAuthenticated ? <DashBoard /> : <Redirect to="/" />}
         </Route>
-         <Route path="/transactions">
-           {isAuthenticated ? <Transaction /> : <Redirect to="/" />}
-        </Route> 
+        <Route path="/transactions">
+          {userState.isAuthenticated ? <Transaction /> : <Redirect to="/" />}
+        </Route>
         <Route path="/test">
           <Test />
         </Route>
@@ -45,4 +38,14 @@ function App() {
   );
 }
 
-export default App;
+function ContextApp() {
+  return (
+    <>
+      <RosemaryContextProvider>
+        <App />
+      </RosemaryContextProvider>
+    </>
+  );
+}
+
+export default ContextApp;

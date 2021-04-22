@@ -7,7 +7,7 @@ import '../styles/dashboard.css';
 
 export default function DashBoard() {
   return (
-    <Layout>
+    <Layout title="DashBoard">
       <section className="pie_section">
         <div className="pie_wrapper">
           <PieChartRender title="CashFlow" />

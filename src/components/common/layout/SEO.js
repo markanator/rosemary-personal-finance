@@ -13,7 +13,7 @@ export default function SEOComponent({
   return (
     <Helmet>
       <html lang="en" amp />
-      <base target="_blank" href="https://rosemary-pf.netlify.app/" />
+      {/* <base target="_blank" href="https://rosemary-pf.netlify.app/" /> */}
       <title>{title}</title>
       <meta name="description" content={description} />
     </Helmet>

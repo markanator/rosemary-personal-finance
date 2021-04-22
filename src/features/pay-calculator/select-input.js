@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import './select-input.css';
+import dayjs from 'dayjs';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -19,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleSelect() {
   const classes = useStyles();
 
-  const [month, setMonth] = React.useState('');
-  const [year, setYear] = React.useState('');
+  const [month, setMonth] = React.useState(dayjs(Date.now()).format('MMMM'));
+  const [year, setYear] = React.useState(new Date().getFullYear());
 
   const handleChangeMonth = (event) => {
     setMonth(event.target.value);

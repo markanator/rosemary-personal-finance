@@ -1,5 +1,7 @@
-@import './videoModal.scss';
-@import './transactionPage';
+@import './partials/cssreset';
+@import './partials/globals';
+@import './partials/video-modal';
+@import './partials/transactionPage';
 
 .btn-primary {
   border-radius: 0px;

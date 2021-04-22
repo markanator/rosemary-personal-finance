@@ -35,10 +35,7 @@ const calculateHours = (results) => {
   // Initialize variables
   let hoursWorked = 0;
   let minutesWorked = 0;
-  let hoursOnBreak = 0;
-  let minutesOnBreak = 0;
   let totalWorkHours = 0;
-  let totalBreakHours = 0;
   let totalShiftHours = 0;
   let totalAmount = 0;
 
@@ -47,8 +44,6 @@ const calculateHours = (results) => {
   const multiplier = results.multiplier;
   const startTime = results.start_time;
   const endTime = results.end_time;
-  const startBreak = results.breaks[0].start_break;
-  const endBreak = results.breaks[0].end_break;
 
   if (startTime !== '' && endTime !== '') {
     // Start Time
@@ -61,42 +56,23 @@ const calculateHours = (results) => {
     const endTimeMin = endTime.split(':')[1];
     const endTimeInHours = Number(endTimeHour) + endTimeMin / 60;
 
-    if (startBreak !== '' && endTime !== '') {
-      // Start Break
-      const startBreakHour = startBreak.split(':')[0];
-      const startBreakMin = startBreak.split(':')[1];
-      const startBreakInHours = Number(startBreakHour) + startBreakMin / 60;
-
-      // End Break
-      const endBreakHour = endBreak.split(':')[0];
-      const endBreakMin = endBreak.split(':')[1];
-      const endBreakInHours = Number(endBreakHour) + endBreakMin / 60;
-
-      totalBreakHours = endBreakInHours - startBreakInHours;
-    }
     // Total Hours
     totalShiftHours = endTimeInHours - startTimeInHours;
-    totalWorkHours = totalShiftHours - totalBreakHours;
+    totalWorkHours = totalShiftHours;
     totalAmount = payRate * multiplier * totalWorkHours;
 
     // Rounded Values
     hoursWorked = Math.floor(totalWorkHours);
     minutesWorked = Math.round((totalShiftHours % 1) * 60);
-    hoursOnBreak = Math.floor(totalBreakHours);
-    minutesOnBreak = Math.round((totalBreakHours % 1) * 60);
 
     // Fixed Decimal Places
     totalWorkHours = totalWorkHours.toFixed(2);
-    totalBreakHours = totalBreakHours.toFixed(2);
     totalAmount = totalAmount.toFixed(2);
   }
   return {
-    hoursWorked: hoursWorked,
-    minutesWorked: minutesWorked,
-    hoursOnBreak: hoursOnBreak,
-    minutesOnBreak: minutesOnBreak,
-    totalWorkHours: totalWorkHours,
-    totalBreakHours: totalBreakHours,
-    totalAmount: totalAmount,
+    hoursWorked: Math.abs(hoursWorked),
+    minutesWorked: Math.abs(minutesWorked),
+    totalWorkHours: Math.abs(totalWorkHours),
+    totalAmount: Math.abs(totalAmount),
   };
 };

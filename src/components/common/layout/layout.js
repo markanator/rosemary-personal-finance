@@ -1,6 +1,7 @@
 import React from 'react';
 import TopNavBar from '../topnavbar/TopNavBar';
 import PageFooter from '../simplefooter/page-footer';
+import SEOComponent from './SEO';
 
 /**
  * This component sandwiches the children content with a navigation bar and footer
@@ -8,12 +9,13 @@ import PageFooter from '../simplefooter/page-footer';
  * @param {*} children Any React content
  *
  */
-export default function Layout({ children }) {
+export default function Layout({ children, title, description }) {
   return (
-    <div>
+    <>
+      <SEOComponent title={title} description={description} />
       <TopNavBar />
-      {children}
+      <main>{children}</main>
       <PageFooter />
-    </div>
+    </>
   );
 }

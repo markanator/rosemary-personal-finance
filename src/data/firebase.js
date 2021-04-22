@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import 'firebase/firestore';
 // TODO: this shouldn't be directly in our source code. we don't want to commit this to GitHub
 const firebaseConfig = {

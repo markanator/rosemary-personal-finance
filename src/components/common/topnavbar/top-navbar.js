@@ -1,24 +1,24 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import styles from './topnavbar.module.css';
+import './topnavbar.scss';
 
 export default function TopNavBar() {
   return (
-    <header className={styles.header}>
-      <nav className={styles.navbar__main}>
-        <div className={styles.navbar__logo_wrapper}>
+    <header className="nav-header">
+      <nav className="navbar__main">
+        <div className="navbar__logo_wrapper">
           <Link to="/">
             <img src="/assets/images/logo.png" alt="rosemary" />
           </Link>
         </div>
-        <ul className={styles.navbar__navlist}>
+        <ul className="navbar__navlist">
           <li>
-            <NavLink className={styles.navbar__links} to="/dashboard">
+            <NavLink className="navbar__links" to="/dashboard">
               Dashboard
             </NavLink>
           </li>
           <li>
-            <NavLink className={styles.navbar__links} to="/transactions">
+            <NavLink className="navbar__links" to="/transactions">
               Transactions
             </NavLink>
           </li>
@@ -33,7 +33,7 @@ export default function TopNavBar() {
 
 const LoginButton = ({ text }) => {
   return (
-    <Link to="/" className={styles.navbar__loginbtn}>
+    <Link to="/" className="navbar__loginbtn">
       {text}
     </Link>
   );

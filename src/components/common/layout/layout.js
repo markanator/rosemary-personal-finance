@@ -1,5 +1,5 @@
 import React from 'react';
-import TopNavBar from '../topnavbar/TopNavBar';
+import TopNavBar from '../topnavbar/top-navbar';
 import PageFooter from '../footer/page-footer';
 import SEOComponent from './SEO';
 

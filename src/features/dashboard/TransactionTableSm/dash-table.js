@@ -1,5 +1,5 @@
 import React from 'react';
-import SmallTable from './SmallTable';
+import SmallTable from './small-table';
 import './DashTableStyles.scss';
 import './table.scss';
 

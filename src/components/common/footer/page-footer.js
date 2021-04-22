@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import './footer.css';
+import './footer.scss';
 
 function PageFooter() {
   const year = new Date().getFullYear();

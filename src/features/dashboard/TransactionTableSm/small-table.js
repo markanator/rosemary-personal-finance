@@ -4,7 +4,7 @@ import { usePagination, useSortBy, useTable } from 'react-table';
 import MOCK_DATA from '../../../tempData/trxList.json';
 import AddTransactionModal from '../../../components/AddTransactionModal';
 import formatMoney from '../../../utils/formatMoney';
-import { COLUMNS } from './SmColumns';
+import { COLUMNS } from './sm-columns';
 
 export default function SmallTable() {
   const [open, setOpen] = useState(false);

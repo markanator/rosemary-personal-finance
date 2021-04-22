@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { auth, provider } from '../firebase';
+import { auth, provider } from '../data/firebase';
 
 function useUser() {
   const [userState, setUserState] = useState({

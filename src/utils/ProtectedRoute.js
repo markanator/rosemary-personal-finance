@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router';
-import useAppContext from '../data/hooks/AppContext';
+import useAppContext from '../hooks/AppContext';
 
 function ProtectedRoute({ children, ...rest }) {
   const { user, isSignedIn } = useAppContext();

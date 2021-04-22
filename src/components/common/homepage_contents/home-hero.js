@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { FaPlayCircle } from 'react-icons/fa';
 import ModalVideo from 'react-modal-video';
-import useAppContext from '../../../data/hooks/AppContext';
+import useAppContext from '../../../hooks/AppContext';
 import './home_hero.scss';
 
 export default function HomeHero() {

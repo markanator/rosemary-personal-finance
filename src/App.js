@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-import { RosemaryContextProvider } from './data/hooks/AppContext';
+import { RosemaryContextProvider } from './hooks/AppContext';
 import DashBoard from './pages/dashboard';
 import Error from './pages/Error';
 import Test from './pages/fireStoreTest';

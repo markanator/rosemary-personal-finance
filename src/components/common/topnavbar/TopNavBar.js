@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useAppContext from '../../../data/hooks/AppContext';
+import useAppContext from '../../../hooks/AppContext';
 import styles from './topnavbar.module.css';
 
 export default function TopNavBar() {

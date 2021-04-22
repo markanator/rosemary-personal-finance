@@ -4,7 +4,7 @@ import HomeFeatures from '../components/common/homepage_contents/home-features';
 import HomeHero from '../components/common/homepage_contents/home-hero';
 import TeamSection from '../components/common/homepage_contents/team_section';
 import Layout from '../components/common/layout/layout';
-import useAppContext from '../data/hooks/AppContext';
+import useAppContext from '../hooks/AppContext';
 
 export default function Home() {
   const router = useHistory();

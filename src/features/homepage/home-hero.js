@@ -2,26 +2,36 @@
 import React, { useState } from 'react';
 import { FaPlayCircle } from 'react-icons/fa';
 import ModalVideo from 'react-modal-video';
-import useUser from '../../../data/hooks/use-user';
+import useUser from '../../hooks/use-user';
 import './home_hero.scss';
 
 export default function HomeHero() {
   const userState = useUser();
-    
+
   let contents;
   if (userState.isSignedIn) {
     contents = (
-    <>
-      <button type="button" className="--signup" onClick={userState.signOut} disabled={userState.isLoading}>
-        {useState.isLoading ? "Signing Out..." : "Sign Out"}
-      </button>
-    </>
+      <>
+        <button
+          type="button"
+          className="--signup"
+          onClick={userState.signOut}
+          disabled={userState.isLoading}
+        >
+          {useState.isLoading ? 'Signing Out...' : 'Sign Out'}
+        </button>
+      </>
     );
   } else {
     contents = (
       <>
-        <button type="button" className="--signup" onClick={userState.signIn} disabled={useState.isLoading}>
-          {useState.issLoading ? "Signing In..." : "Sign In"}
+        <button
+          type="button"
+          className="--signup"
+          onClick={userState.signIn}
+          disabled={useState.isLoading}
+        >
+          {useState.issLoading ? 'Signing In...' : 'Sign In'}
         </button>
       </>
     );
@@ -31,27 +41,25 @@ export default function HomeHero() {
   if (userState.isSignedIn) {
     contents2 = (
       <p className="--blurb">
-        Welcome! Please navigate to your dashboard or transactions page to start managing your finances.
+        Welcome! Please navigate to your dashboard or transactions page to start
+        managing your finances.
       </p>
-    ) ;
+    );
   } else {
     contents2 = (
       <p className="--blurb">
         Please sign in or create a new account to start your personal financing.
       </p>
     );
-  } 
+  }
 
   if (userState.error) {
     contents2 = (
       <p className="--blurb__error">
         There was an error when trying to log in or sign up. Please try again.
       </p>
-    )
+    );
   }
-  
-
-
 
   const [openModal, setOpenModal] = useState(false);
   return (

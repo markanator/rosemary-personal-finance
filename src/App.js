@@ -1,8 +1,6 @@
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Layout from './components/common/layout/layout';
-import useAppContext, {
-  RosemaryContextProvider,
-} from './data/hooks/AppContext';
+import { RosemaryContextProvider } from './data/hooks/AppContext';
 import DashBoard from './pages/dashboard';
 import Test from './pages/fireStoreTest';
 import Home from './pages/home';
@@ -10,8 +8,6 @@ import Transaction from './pages/transaction';
 import ProtectedRoute from './utils/ProtectedRoute';
 
 function App() {
-  const userState = useAppContext();
-  console.log('use User', userState);
   return (
     <>
       <Switch>

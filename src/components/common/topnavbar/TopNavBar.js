@@ -4,7 +4,14 @@ import useAppContext from '../../../data/hooks/AppContext';
 import styles from './topnavbar.module.css';
 
 export default function TopNavBar() {
-  const { isSignedIn, user } = useAppContext();
+  const { isSignedIn, user, signIn, signOut } = useAppContext();
+
+  let AuthButtonContent;
+  if (isSignedIn && user !== null) {
+    AuthButtonContent = <LoginButton text="Logout" authFunction={signOut} />;
+  } else {
+    AuthButtonContent = <LoginButton text="Login" authFunction={signIn} />;
+  }
 
   return (
     <header className={styles.header}>
@@ -30,17 +37,15 @@ export default function TopNavBar() {
             </li>
           </ul>
         )}
-        <div>
-          <LoginButton text="Login" />
-        </div>
+        <div>{AuthButtonContent}</div>
       </nav>
     </header>
   );
 }
 
-const LoginButton = ({ text }) => {
+const LoginButton = ({ text, authFunction }) => {
   return (
-    <Link to="/" className={styles.navbar__loginbtn}>
+    <Link to="/" className={styles.navbar__loginbtn} onClick={authFunction}>
       {text}
     </Link>
   );

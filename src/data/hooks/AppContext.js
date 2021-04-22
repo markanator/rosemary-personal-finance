@@ -16,6 +16,10 @@ function RosemaryContextProvider({ children }) {
 }
 
 //react-hook to access context
+/**
+ *
+ * @returns { isLoading, isSignedIn, error, signIn, signOut, user}
+ */
 function useAppContext() {
   const userState = useContext(AppContext);
   if (!userState) {

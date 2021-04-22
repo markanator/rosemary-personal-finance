@@ -1,4 +1,4 @@
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Layout from './components/common/layout/layout';
 import useAppContext, {
   RosemaryContextProvider,
@@ -7,6 +7,7 @@ import DashBoard from './pages/dashboard';
 import Test from './pages/fireStoreTest';
 import Home from './pages/home';
 import Transaction from './pages/transaction';
+import ProtectedRoute from './utils/ProtectedRoute';
 
 function App() {
   const userState = useAppContext();
@@ -17,12 +18,12 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/dashboard">
-          {userState.isSignedIn ? <DashBoard /> : <Redirect to="/" />}
-        </Route>
-        <Route path="/transactions">
-          {userState.isSignedIn ? <Transaction /> : <Redirect to="/" />}
-        </Route>
+        <ProtectedRoute path="/dashboard">
+          <DashBoard />
+        </ProtectedRoute>
+        <ProtectedRoute path="/transactions">
+          <Transaction />
+        </ProtectedRoute>
         <Route path="/test">
           <Test />
         </Route>

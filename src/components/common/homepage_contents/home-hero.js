@@ -2,58 +2,66 @@
 import React, { useState } from 'react';
 import { FaPlayCircle } from 'react-icons/fa';
 import ModalVideo from 'react-modal-video';
-import useUser from '../../../data/hooks/use-user';
+import useAppContext from '../../../data/hooks/AppContext';
 import './home_hero.scss';
 
 export default function HomeHero() {
-  const userState = useUser();
-    
-  let contents;
+  const [openModal, setOpenModal] = useState(false);
+  const userState = useAppContext();
+
+  let AuthButton;
   if (userState.isSignedIn) {
-    contents = (
-    <>
-      <button type="button" className="--signup" onClick={userState.signOut} disabled={userState.isLoading}>
-        {useState.isLoading ? "Signing Out..." : "Sign Out"}
-      </button>
-    </>
+    AuthButton = (
+      <>
+        <button
+          type="button"
+          className="--signup"
+          onClick={userState.signOut}
+          disabled={userState.isLoading}
+        >
+          {useState.isLoading ? 'Signing Out...' : 'Sign Out'}
+        </button>
+      </>
     );
   } else {
-    contents = (
+    AuthButton = (
       <>
-        <button type="button" className="--signup" onClick={userState.signIn} disabled={useState.isLoading}>
-          {useState.issLoading ? "Signing In..." : "Sign In"}
+        <button
+          type="button"
+          className="--signup"
+          onClick={userState.signIn}
+          disabled={useState.isLoading}
+        >
+          {useState.issLoading ? 'Signing In...' : 'Sign In'}
         </button>
       </>
     );
   }
 
-  let contents2;
+  let TextBlurb;
   if (userState.isSignedIn) {
-    contents2 = (
+    TextBlurb = (
       <p className="--blurb">
-        Welcome! Please navigate to your dashboard or transactions page to start managing your finances.
+        Welcome! Please navigate to your dashboard or transactions page to start
+        managing your finances.
       </p>
-    ) ;
+    );
   } else {
-    contents2 = (
+    TextBlurb = (
       <p className="--blurb">
         Please sign in or create a new account to start your personal financing.
       </p>
     );
-  } 
+  }
 
   if (userState.error) {
-    contents2 = (
+    TextBlurb = (
       <p className="--blurb__error">
         There was an error when trying to log in or sign up. Please try again.
       </p>
-    )
+    );
   }
-  
 
-
-
-  const [openModal, setOpenModal] = useState(false);
   return (
     <section>
       <div className="hero__main">
@@ -76,13 +84,8 @@ export default function HomeHero() {
               <h1 className="--header">
                 Customized Personal Financial and Money Management
               </h1>
-              {contents2}
-              {/* <p className="--blurb">
-                Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad,
-                nam no suscipit quaerendum. At nam minimum ponderum. Est audiam
-                animal molestiae te. Ex duo eripuit mentitum.
-              </p> */}
-              {contents}
+              {TextBlurb}
+              {AuthButton}
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ import Transaction from './pages/transaction';
 
 function App() {
   const userState = useAppContext();
-
+  console.log('use User', userState);
   return (
     <>
       <Switch>
@@ -18,10 +18,10 @@ function App() {
           <Home />
         </Route>
         <Route path="/dashboard">
-          {userState.isAuthenticated ? <DashBoard /> : <Redirect to="/" />}
+          {userState.isSignedIn ? <DashBoard /> : <Redirect to="/" />}
         </Route>
         <Route path="/transactions">
-          {userState.isAuthenticated ? <Transaction /> : <Redirect to="/" />}
+          {userState.isSignedIn ? <Transaction /> : <Redirect to="/" />}
         </Route>
         <Route path="/test">
           <Test />

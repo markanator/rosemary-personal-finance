@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './topnavbar.module.css';
 
 export default function TopNavBar() {
@@ -13,14 +13,14 @@ export default function TopNavBar() {
         </div>
         <ul className={styles.navbar__navlist}>
           <li>
-            <NavLink className={styles.navbar__links} to="/dashboard">
+            <Link className={styles.navbar__links} to="/dashboard">
               Dashboard
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink className={styles.navbar__links} to="/transactions">
+            <Link className={styles.navbar__links} to="/transactions">
               Transactions
-            </NavLink>
+            </Link>
           </li>
         </ul>
         <div>

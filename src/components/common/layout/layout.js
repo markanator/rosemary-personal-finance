@@ -10,10 +10,10 @@ import PageFooter from '../simplefooter/page-footer';
  */
 export default function Layout({ children }) {
   return (
-    <div>
+    <>
       <TopNavBar />
-      {children}
+      <main>{children}</main>
       <PageFooter />
-    </div>
+    </>
   );
 }

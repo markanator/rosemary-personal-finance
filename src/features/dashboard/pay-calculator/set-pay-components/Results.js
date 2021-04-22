@@ -19,13 +19,13 @@ export default Results;
 
 // eslint-disable-next-line no-unused-vars
 const convertTime = (time24) => {
-  var timeString = '';
+  let timeString = '';
   if (time24 !== '' || time24 !== null) {
     timeString = time24;
-    var H = +timeString.substr(0, 2);
-    var h = H % 12 || 12;
+    let H = +timeString.substr(0, 2);
+    let h = H % 12 || 12;
     //h = (h < 10)?("0"+h):h;  // leading 0 at the left for 1 digit hours
-    var ampm = H < 12 ? ' am' : ' pm';
+    let ampm = H < 12 ? ' am' : ' pm';
     timeString = h + timeString.substr(2, 3) + ampm;
   }
   return timeString;

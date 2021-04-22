@@ -3,11 +3,23 @@
 }
 
 .feature-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin: 30px;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 .feature-container h1 {
   text-align: center;
+}
+
+.feature-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 1167px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .columns {

@@ -35,10 +35,6 @@ $backdrop-color: rgba(0, 0, 0, 0.5);
   animation-timing-function: $animation-function;
   animation-duration: $animation-speed;
   animation-name: modal-video;
-  -webkit-transition: opacity $animation-speed $animation-function;
-  -moz-transition: opacity $animation-speed $animation-function;
-  -ms-transition: opacity $animation-speed $animation-function;
-  -o-transition: opacity $animation-speed $animation-function;
   transition: opacity $animation-speed $animation-function;
 }
 
@@ -46,10 +42,6 @@ $backdrop-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
 
   & .modal-video-movie-wrap {
-    -webkit-transform: translate(0, 100px);
-    -moz-transform: translate(0, 100px);
-    -ms-transform: translate(0, 100px);
-    -o-transform: translate(0, 100px);
     transform: translate(0, 100px);
   }
 }
@@ -78,15 +70,7 @@ $backdrop-color: rgba(0, 0, 0, 0.5);
   animation-timing-function: $animation-function;
   animation-duration: $animation-speed;
   animation-name: modal-video-inner;
-  -webkit-transform: translate(0, 0);
-  -moz-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
   transform: translate(0, 0);
-  -webkit-transition: -webkit-transform $animation-speed $animation-function;
-  -moz-transition: -moz-transform $animation-speed $animation-function;
-  -ms-transition: -ms-transform $animation-speed $animation-function;
-  -o-transition: -o-transform $animation-speed $animation-function;
   transition: transform $animation-speed $animation-function;
 
   & iframe {

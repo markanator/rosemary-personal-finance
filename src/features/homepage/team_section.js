@@ -1,5 +1,5 @@
 import React from 'react';
-import './team_section.css';
+import './team_section.scss';
 
 export default function TeamSection() {
   return (

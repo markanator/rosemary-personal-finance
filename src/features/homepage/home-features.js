@@ -2,11 +2,11 @@ import React from 'react';
 import { FcInspection } from 'react-icons/fc';
 import { FcPieChart } from 'react-icons/fc';
 import { FcCalculator } from 'react-icons/fc';
-import './home-features.css';
+import './home-features.scss';
 
 function HomeFeatures() {
   return (
-    <div className="feature-container">
+    <section className="feature-container">
       <h1> Our Features </h1>
       <h3> The Modern Way to Track & Manage your Personal Financial </h3>
 
@@ -39,7 +39,7 @@ function HomeFeatures() {
           </p>
         </div>
       </section>
-    </div>
+    </section>
   );
 }
 

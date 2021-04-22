@@ -6,7 +6,7 @@ import FullTable from '../features/transactions-page/main-table';
 export default function Transaction() {
   return (
     <Layout>
-      <main className="transaction__main">
+      <section className="transaction__main">
         <div className="transaction__wrapper">
           <aside className="transaction__sidebar">
             <div className="sidebar__container">
@@ -32,7 +32,7 @@ export default function Transaction() {
             <FullTable />
           </section>
         </div>
-      </main>
+      </section>
     </Layout>
   );
 }

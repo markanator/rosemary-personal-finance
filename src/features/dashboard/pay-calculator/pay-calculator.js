@@ -6,7 +6,7 @@ import SetPay from './set-pay.js';
 
 function PayCalculator() {
   return (
-    <main>
+    <section>
       <div className="section-text">
         <h1>Paycheck Calculator</h1>
         <h4>Easily create paychecks calculated for you!</h4>
@@ -19,7 +19,7 @@ function PayCalculator() {
       <div className="section-box">
         <SetPay />
       </div>
-    </main>
+    </section>
   );
 }
 

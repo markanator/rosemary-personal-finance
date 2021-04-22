@@ -31,7 +31,7 @@ export const COLUMNS = [
     Header: 'Amount',
     accessor: 'trx_amount',
     Cell: ({ value }) => {
-      return formatMoney(value * 100);
+      return formatMoney(value);
     },
     disableFilters: true,
   },

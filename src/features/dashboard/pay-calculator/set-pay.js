@@ -45,9 +45,13 @@ const SetPay = () => {
   return (
     <div>
       <Settings setPayRate={setPayRate} setMultiplier={setMultiplier} />
-      <button onClick={clearSettings}>Clear Settings</button>
+      <button className="btn-primary active" onClick={clearSettings}>
+        Clear Settings
+      </button>
       <ShiftTimes setStartTime={setStartTime} setEndTime={setEndTime} />
-      <button onClick={resetState}>Reset Times</button>
+      <button className="btn-primary active" onClick={resetState}>
+        Reset Times
+      </button>
       <Results results={payState} />
     </div>
   );

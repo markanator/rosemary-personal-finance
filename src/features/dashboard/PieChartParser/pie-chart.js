@@ -3,6 +3,7 @@ import { PieChart } from 'react-minimal-pie-chart';
 import './pie-chart.css';
 import MOCK_DATA from '../../../tempData/trxList.json';
 import PieChartParser from './pie-chart_parser';
+import formatMoney from '../../../utils/formatMoney';
 
 const [finalResults] = PieChartParser(MOCK_DATA);
 
@@ -36,6 +37,7 @@ export default function PieChartRender({ title }) {
       />
       <ul className="details">
         {myData.slice(0, 5).map((element) => {
+          const amount = formatMoney(element.value);
           return (
             <li key={element.value}>
               <span className="label">
@@ -43,8 +45,7 @@ export default function PieChartRender({ title }) {
                   style={{ backgroundColor: `${element.color}` }}
                   className="circle"
                 ></span>
-                <b>${element.value}</b>
-                <br />
+                <strong>{amount}</strong>
                 <p>{element.category}</p>
               </span>
             </li>

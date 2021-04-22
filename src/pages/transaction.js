@@ -5,7 +5,7 @@ import FullTable from '../features/transactions-page/main-table';
 
 export default function Transaction() {
   return (
-    <Layout>
+    <Layout title="All Transactions">
       <section className="transaction__main">
         <div className="transaction__wrapper">
           <aside className="transaction__sidebar">

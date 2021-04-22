@@ -8,15 +8,15 @@ import { COLUMNS } from './sm-columns';
 
 export default function SmallTable() {
   const [open, setOpen] = useState(false);
-  let balance = 0;
+  let balance = 10000; // start with $100
+
   // memoize data to prevent excessive renders
   const columns = useMemo(() => COLUMNS, []);
 
   const data = useMemo(
     () =>
       MOCK_DATA.map((trx) => {
-        // eslint-disable-next-line
-        balance += trx.trx_amount * 100;
+        balance += trx.trx_amount;
         return {
           ...trx,
           running_bal: formatMoney(balance),

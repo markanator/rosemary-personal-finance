@@ -35,8 +35,6 @@ const calculateHours = (results) => {
   // Initialize variables
   let hoursWorked = 0;
   let minutesWorked = 0;
-  let hoursOnBreak = 0;
-  let minutesOnBreak = 0;
   let totalWorkHours = 0;
   let totalShiftHours = 0;
   let totalAmount = 0;
@@ -72,11 +70,9 @@ const calculateHours = (results) => {
     totalAmount = totalAmount.toFixed(2);
   }
   return {
-    hoursWorked: hoursWorked,
-    minutesWorked: minutesWorked,
-    hoursOnBreak: hoursOnBreak,
-    minutesOnBreak: minutesOnBreak,
-    totalWorkHours: totalWorkHours,
-    totalAmount: totalAmount,
+    hoursWorked: Math.abs(hoursWorked),
+    minutesWorked: Math.abs(minutesWorked),
+    totalWorkHours: Math.abs(totalWorkHours),
+    totalAmount: Math.abs(totalAmount),
   };
 };

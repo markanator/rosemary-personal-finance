@@ -1,7 +1,11 @@
 /* eslint-disable no-undef */
+// Brings in the core functionality:
 import firebase from 'firebase/app';
+
+// Brings in the specific services we want to use:
 import 'firebase/firestore';
-// TODO: this shouldn't be directly in our source code. we don't want to commit this to GitHub
+import 'firebase/auth';
+
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -27,5 +31,7 @@ if (!firebaseConfig.appId)
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
 
-export { db, firebase };
+export { db, auth, provider, firebase };

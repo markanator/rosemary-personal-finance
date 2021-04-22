@@ -8,6 +8,10 @@
   background-color: #8282821f;
 }
 
+button:disabled {
+  opacity: 0.8;
+}
+
 .hero__wrapper {
   display: flex;
   flex-direction: row;
@@ -69,6 +73,13 @@
       font-size: 1.125rem;
       letter-spacing: 0.2px;
       color: var(--font-secondary-color);
+      margin-bottom: 4rem;
+    }
+
+    .--blurb__error {
+      font-size: 1.125rem;
+      letter-spacing: 0.2px;
+      color: red;
       margin-bottom: 4rem;
     }
 

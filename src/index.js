@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 //locals
 import App from './App';
 import './styles/index.scss';
+import { db } from './data/firebase';
 
 ReactDOM.render(
   <Router>
@@ -12,3 +13,5 @@ ReactDOM.render(
   </Router>,
   document.getElementById('root')
 );
+
+console.log(db);

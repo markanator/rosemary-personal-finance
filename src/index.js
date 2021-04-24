@@ -16,4 +16,19 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-console.log(db);
+async function createUser(user) {
+  try{
+    const docRef = await db.collection("users").add(user)
+    console.log(`Successfully added new user at ${docRef.id}`);
+  } catch(err) {
+    console.log(err);
+  }
+}
+
+createUser({
+  firstName: "Test",
+  lastName: "McTester",
+  isOnline: false,
+  highScore: 0,
+  topics: ["Movies, Books"]
+})

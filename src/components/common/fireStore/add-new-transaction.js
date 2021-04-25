@@ -13,7 +13,7 @@ function AddTransaction() {
             const docRef = await db.collection("transactions").add({
                 trx_amount,
                 trx_category,
-                trx_date: new Date("December 17, 1995 03:24"),
+                trx_date: new Date("December 17, 1995 03:24:00"),
                 trx_details,
                 trx_type
             })

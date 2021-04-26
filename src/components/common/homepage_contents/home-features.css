@@ -6,6 +6,9 @@
   text-align: center;
   margin: 30px;
 }
+.feature-container h1 {
+  text-align: center;
+}
 
 .columns {
   display: flex;
@@ -24,6 +27,10 @@
 .app-icon {
   width: 40px;
   height: 40px;
+}
+
+.app-icon h4 {
+  text-align: center;
 }
 
 @media screen and (max-width: 800px) {

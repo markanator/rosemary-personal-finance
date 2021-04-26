@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# Rosemary Personal Finance
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple modern checkbook balancer for the modern frugalist with helpful insights and wage calculators.
+
+## PROG 455 - APP Development Team
+
+<a href="https://github.com/markanator/rosemary-personal-finance/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=markanator/rosemary-personal-finance" />
+</a>
+
+## ENV variables needed
+
+```js
+REACT_APP_FIREBASE_KEY=
+REACT_APP_AUTH_DOMAIN=
+REACT_APP_PROJECT_ID=
+REACT_APP_BUCKET=
+REACT_APP_MESSAGING_ID=
+REACT_APP_APP_ID=
+```
 
 ## Available Scripts
 
@@ -28,14 +45,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## env variables needed
-```node
-REACT_APP_FIREBASE_KEY
-REACT_APP_AUTH_DOMAIN
-REACT_APP_PROJECT_ID
-REACT_APP_BUCKET
-REACT_APP_MESSAGING_ID
-REACT_APP_APP_ID
-```
-

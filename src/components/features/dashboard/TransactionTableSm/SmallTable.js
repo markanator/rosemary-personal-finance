@@ -7,6 +7,7 @@ import { COLUMNS } from './SmColumns';
 
 export default function SmallTable() {
   let balance = 0;
+
   // memoize data to prevent excessive renders
   const columns = useMemo(() => COLUMNS, []);
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import Layout from '../components/common/layout/layout';
-import FullTable from '../components/features/transactionsPage/MainTable';
 import formatMoney from '../utils/formatMoney';
+import FullTable from '../features/transactions-page/main-table';
 
 export default function Transaction() {
   return (
-    <Layout>
-      <main className="transaction__main">
+    <Layout title="All Transactions">
+      <section className="transaction__main">
         <div className="transaction__wrapper">
           <aside className="transaction__sidebar">
             <div className="sidebar__container">
@@ -32,7 +32,7 @@ export default function Transaction() {
             <FullTable />
           </section>
         </div>
-      </main>
+      </section>
     </Layout>
   );
 }

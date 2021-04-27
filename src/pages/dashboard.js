@@ -1,21 +1,34 @@
 import React from 'react';
 import Layout from '../components/common/layout/layout';
-import DashboardTableSection from '../components/features/dashboard/TransactionTableSm';
-import PayCalculator from '../components/features/PayCalculator/pay-calculator';
-import PieChartRender from '../components/common/dashboard_contents/pie-chart';
-import '../styles/dashboard.css';
+
+import PieChartRender from '../features/dashboard/PieChartParser/pie-chart';
+import DashboardTableSection from '../features/dashboard/TransactionTableSm';
+import PayCalculator from '../features/dashboard/pay-calculator/pay-calculator';
+// data
+import MockData from '../tempData/trxList.json';
+import PieChartParser from '../features/dashboard/PieChartParser/pie-chart_parser';
+
+// console.log(Cashflow);
 
 export default function DashBoard() {
+  const finalResults = PieChartParser(MockData);
+
+  const tempCashFlow = finalResults.filter((item) => {
+    if (item.category === 'Income' || item.category === 'Bills') {
+      return item;
+    }
+  });
+
   return (
-    <Layout>
-      <section className="pie_section">
-        <div className="pie_wrapper">
-          <PieChartRender title="CashFlow" />
-          <PieChartRender title="Spending" />
-        </div>
+    <Layout title="DashBoard">
+      <div className="pie_section">
+        <section className="pie_wrapper">
+          <PieChartRender title="CashFlow" chartData={tempCashFlow} />
+          <PieChartRender title="Spending" chartData={finalResults} />
+        </section>
         <DashboardTableSection />
         <PayCalculator />
-      </section>
+      </div>
     </Layout>
   );
 }

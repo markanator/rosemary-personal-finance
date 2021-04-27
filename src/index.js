@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { BrowserRouter } from 'react-router-dom';
 //locals
 import App from './App';
 import './styles/globalStyles.css';
 import './styles/cssreset.css';
 import './styles/index.scss';
-import { db } from './data/firebase';
-import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <>
@@ -17,5 +15,3 @@ ReactDOM.render(
   </>,
   document.getElementById('root')
 );
-
-console.log(db);

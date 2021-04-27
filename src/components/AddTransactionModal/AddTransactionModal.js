@@ -17,18 +17,21 @@ import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { AddTrxSchema } from './AddTrxSchema';
 import { useAddTrxStyles } from './muiFormStyle';
-import { db } from '../../data/firebase';
-import useUser from '../../hooks/use-user';
+import { db, firebase } from '../../data/firebase';
+// import useUser from '../../hooks/use-user';
+import useAppContext from '../../hooks/AppContext';
+import uid from '../../utils/uid';
 
 export default function AddTransactionModal({ handleClose, open }) {
   const classes = useAddTrxStyles();
 
-  const { user } = useUser();
+  const { user } = useAppContext();
 
   const {
     handleSubmit,
     watch,
     control,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(AddTrxSchema),
@@ -36,16 +39,27 @@ export default function AddTransactionModal({ handleClose, open }) {
   const watchTrxType = watch('trxType');
 
   const onSubmit = async (data) => {
+    const trx_id = uid();
     try {
-      const docRef = await db.collection('transactions').add({
-        ...data,
-        userID: user.uid,
-      });
-      console.log(`Successfully added new transaction at ${docRef.id}`);
+      await db
+        .collection('users')
+        .doc(user.uid)
+        .update({
+          transactions: firebase.firestore.FieldValue.arrayUnion({
+            ...data,
+            trx_id,
+          }),
+        });
+      console.log(
+        `Successfully added new transaction to a user document::`,
+        trx_id
+      );
     } catch (err) {
       console.error(err);
     }
+
     handleClose();
+    reset();
   };
 
   return (

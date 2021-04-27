@@ -1,39 +1,51 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import useAppContext from '../../../hooks/AppContext';
 import styles from './topnavbar.module.css';
 
 export default function TopNavBar() {
+  const { isSignedIn, user, signIn, signOut } = useAppContext();
+
+  let AuthButtonContent;
+  if (isSignedIn && user !== null) {
+    AuthButtonContent = <LoginButton text="Logout" authFunction={signOut} />;
+  } else {
+    AuthButtonContent = <LoginButton text="Login" authFunction={signIn} />;
+  }
+
   return (
     <header className={styles.header}>
       <nav className={styles.navbar__main}>
         <div className={styles.navbar__logo_wrapper}>
-          <Link to="/">
+          <Link to={isSignedIn ? '/dashboard' : '/'}>
             <img src="/assets/images/logo.png" alt="rosemary" />
           </Link>
         </div>
-        <ul className={styles.navbar__navlist}>
-          <li>
-            <NavLink className={styles.navbar__links} to="/dashboard">
-              Dashboard
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={styles.navbar__links} to="/transactions">
-              Transactions
-            </NavLink>
-          </li>
-        </ul>
-        <div>
-          <LoginButton text="Login" />
-        </div>
+        {!isSignedIn && !user ? (
+          <div className={styles.navbar__navlist}></div>
+        ) : (
+          <ul className={styles.navbar__navlist}>
+            <li>
+              <Link className={styles.navbar__links} to="/dashboard">
+                Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.navbar__links} to="/transactions">
+                Transactions
+              </Link>
+            </li>
+          </ul>
+        )}
+        <div>{AuthButtonContent}</div>
       </nav>
     </header>
   );
 }
 
-const LoginButton = ({ text }) => {
+const LoginButton = ({ text, authFunction }) => {
   return (
-    <Link to="/" className={styles.navbar__loginbtn}>
+    <Link to="/" className={styles.navbar__loginbtn} onClick={authFunction}>
       {text}
     </Link>
   );

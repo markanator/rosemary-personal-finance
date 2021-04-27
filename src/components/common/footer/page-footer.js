@@ -9,7 +9,12 @@ function PageFooter() {
       <nav className="navbar__main">
         <div className="navbar__logo_wrapper">
           <Link to="/">
-            <img src="/assets/images/logo.png" alt="rosemary" />
+            <img
+              src="/assets/images/logo.png"
+              alt="rosemary"
+              height="auto"
+              width="50px"
+            />
           </Link>
         </div>
 

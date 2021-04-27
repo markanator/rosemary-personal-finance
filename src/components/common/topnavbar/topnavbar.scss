@@ -39,13 +39,12 @@
     font-weight: 600;
     font-size: 1rem;
   }
-
-  .navbar__loginbtn {
-    background-color: var(--color-pastel-green);
-    padding: 0.75rem;
-    color: black;
-    font-weight: 900;
-  }
+}
+.navbar__loginbtn {
+  background-color: var(--color-pastel-green);
+  padding: 0.75rem;
+  color: black;
+  font-weight: 900;
 }
 
 @media only screen and (max-width: 500px) {

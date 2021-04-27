@@ -5,7 +5,7 @@ export default function TeamSection() {
   return (
     <section className="team__section">
       <div className="team-wrapper">
-        <h1 className="header">Meet Our Team</h1>
+        <h1 className="team__header">Meet Our Team</h1>
         <ul className="team-list">
           <li>
             <img

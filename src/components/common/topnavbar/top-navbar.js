@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useAppContext from '../../../hooks/AppContext';
-import styles from './topnavbar.module.css';
+import './topnavbar.scss';
 
 export default function TopNavBar() {
   const { isSignedIn, user, signIn, signOut } = useAppContext();
@@ -14,24 +14,29 @@ export default function TopNavBar() {
   }
 
   return (
-    <header className={styles.header}>
-      <nav className={styles.navbar__main}>
-        <div className={styles.navbar__logo_wrapper}>
+    <header className="nav-header">
+      <nav className="navbar__main">
+        <div className="navbar__logo_wrapper">
           <Link to={isSignedIn ? '/dashboard' : '/'}>
-            <img src="/assets/images/logo.png" alt="rosemary" />
+            <img
+              src="/assets/images/logo.png"
+              alt="rosemary"
+              height="auto"
+              width="50px"
+            />
           </Link>
         </div>
         {!isSignedIn && !user ? (
-          <div className={styles.navbar__navlist}></div>
+          <div className="navbar__navlist"></div>
         ) : (
-          <ul className={styles.navbar__navlist}>
+          <ul className="navbar__navlist">
             <li>
-              <Link className={styles.navbar__links} to="/dashboard">
+              <Link className="navbar__links" to="/dashboard">
                 Dashboard
               </Link>
             </li>
             <li>
-              <Link className={styles.navbar__links} to="/transactions">
+              <Link className="navbar__links" to="/transactions">
                 Transactions
               </Link>
             </li>
@@ -45,7 +50,7 @@ export default function TopNavBar() {
 
 const LoginButton = ({ text, authFunction }) => {
   return (
-    <Link to="/" className={styles.navbar__loginbtn} onClick={authFunction}>
+    <Link to="/" className="navbar__loginbtn" onClick={authFunction}>
       {text}
     </Link>
   );

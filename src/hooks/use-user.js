@@ -8,9 +8,6 @@ function useUser() {
     error: null,
   });
 
-  const { user, isLoading, error } = userState;
-  const isSignedIn = user !== null;
-
   useEffect(() => {
     const onChange = (currentUser) => {
       setUserState({ user: currentUser, isLoading: false, error: null });
@@ -46,6 +43,9 @@ function useUser() {
       setUserState({ user: userState.user, isLoading: false, error });
     }
   };
+
+  const { user, isLoading, error } = userState;
+  const isSignedIn = user !== null;
 
   return {
     user,

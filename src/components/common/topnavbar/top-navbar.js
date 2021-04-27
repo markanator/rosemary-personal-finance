@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAppContext from '../../../hooks/AppContext';
 import './topnavbar.scss';
 
@@ -31,14 +31,14 @@ export default function TopNavBar() {
         ) : (
           <ul className="navbar__navlist">
             <li>
-              <Link className="navbar__links" to="/dashboard">
+              <NavLink className="navbar__links" to="/dashboard">
                 Dashboard
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="navbar__links" to="/transactions">
+              <NavLink className="navbar__links" to="/transactions">
                 Transactions
-              </Link>
+              </NavLink>
             </li>
           </ul>
         )}

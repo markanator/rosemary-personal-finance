@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Results from './set-pay-components/Results';
 import Settings from './set-pay-components/Settings';
 import ShiftTimes from './set-pay-components/ShiftTimes';
-
+import './set-pay.css';
 const initialState = {
   pay_rate: 0,
   multiplier: 1,
@@ -43,16 +43,23 @@ const SetPay = () => {
   };
 
   return (
-    <div>
-      <Settings setPayRate={setPayRate} setMultiplier={setMultiplier} />
-      <button className="btn-primary active" onClick={clearSettings}>
-        Clear Settings
-      </button>
-      <ShiftTimes setStartTime={setStartTime} setEndTime={setEndTime} />
-      <button className="btn-primary active" onClick={resetState}>
-        Reset Times
-      </button>
+    <div className="listing">
+      <div>
+        <Settings setPayRate={setPayRate} setMultiplier={setMultiplier} />
+        <button className="btn-primary active" onClick={clearSettings}>
+          Clear Settings
+        </button>
+      </div>
+      <div>
+        <ShiftTimes setStartTime={setStartTime} setEndTime={setEndTime} />
+        <button className="btn-primary active" onClick={resetState} >
+          Reset Times
+        </button>
+      </div>
+      <div>
       <Results results={payState} />
+      </div>
+      
     </div>
   );
 };

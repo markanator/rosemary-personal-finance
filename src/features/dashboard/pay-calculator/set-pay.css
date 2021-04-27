@@ -1,0 +1,12 @@
+.listing{
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: row;
+    
+}
+
+.eachOne{
+    display: flex;
+}

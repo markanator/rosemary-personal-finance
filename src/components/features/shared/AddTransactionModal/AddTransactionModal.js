@@ -17,6 +17,7 @@ import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { AddTrxSchema } from './AddTrxSchema';
 import { useAddTrxStyles } from './muiFormStyle';
+import { db } from "../../../../data/firebase";
 
 export default function AddTransactionModal({ handleClose, open }) {
   const classes = useAddTrxStyles();
@@ -30,9 +31,15 @@ export default function AddTransactionModal({ handleClose, open }) {
   });
   const watchTrxType = watch('trxType');
 
-  const onSubmit = (data) => {
-    //! ADD CONTEXT/API STUFF HERE
-    alert(JSON.stringify(data, null, 2));
+  const onSubmit = async (data) => {
+    try {
+      const docRef = await db.collection("transactions").add({
+          ...data
+      })
+      console.log(`Successfully added new transaction at ${docRef.id}`);
+  } catch (err) {
+      console.error(err);
+  }
     handleClose();
   };
 
@@ -50,6 +57,7 @@ export default function AddTransactionModal({ handleClose, open }) {
             <Grid item xs={6}>
               {/* TRANSACTION TYPE */}
               <FormControl className={classes.formControls}>
+
                 <InputLabel htmlFor="trxType">Transaction Type</InputLabel>
                 <Controller
                   name="trxType"
@@ -63,6 +71,7 @@ export default function AddTransactionModal({ handleClose, open }) {
                     </Select>
                   )}
                 />
+
                 <FormHelperText error={!!errors?.trxType?.message}>
                   {errors.trxType && errors.trxType.message}
                 </FormHelperText>

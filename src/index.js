@@ -14,20 +14,3 @@ ReactDOM.render(
   </Router>,
   document.getElementById('root')
 );
-
-// async function addTransaction(transaction) {
-//   try{
-//     const docRef = await db.collection("transactions").add(transaction)
-//     console.log(`Successfully added new transaction at ${docRef.id}`);
-//   } catch(err) {
-//     console.log(err);
-//   }
-// }
-
-// addTransaction({
-//   trx_amount: 30,
-//   trx_category: "Entertainment",
-//   trx_date: "um..today?",
-//   trx_details: "Moive ticket!",
-//   trx_type: "Transfer"
-// })

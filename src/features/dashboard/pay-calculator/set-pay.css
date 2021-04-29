@@ -4,9 +4,5 @@
     align-items: flex-start;
     justify-content: space-evenly;
     flex-direction: row;
-    
 }
 
-.eachOne{
-    display: flex;
-}

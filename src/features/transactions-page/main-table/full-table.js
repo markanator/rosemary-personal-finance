@@ -1,12 +1,14 @@
 /* eslint-disable react/jsx-key */
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { usePagination, useSortBy, useTable } from 'react-table';
 import MOCK_DATA from '../../../tempData/trxList.json';
 import formatMoney from '../../../utils/formatMoney';
 import { MainTableColumns } from './table-columns';
+import AddTransactionModal from '../../../components/AddTransactionModal';
 import './mainTrxTable.scss';
 
 export default function FullTable() {
+  const [open, setOpen] = useState(false);
   let balance = 0;
   const columns = useMemo(() => MainTableColumns, []);
 
@@ -50,11 +52,19 @@ export default function FullTable() {
     usePagination
   );
 
+  const OpenAddTrxModal = () => {
+    setOpen(true);
+  };
+
+  const CloseAddTrxModal = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <div className="trxtable__wrapper">
         <div className="trxtable__header">
-          <button className="btn-primary">Add Transaction</button>
+          <button className="btn-primary" onClick={OpenAddTrxModal}>Add Transaction</button>
         </div>
         <table className="trx__table" {...getTableProps()}>
           <thead>
@@ -121,6 +131,7 @@ export default function FullTable() {
             Next
           </button>{' '}
         </div>
+        <AddTransactionModal handleClose={CloseAddTrxModal} open={open} />
       </div>
     </>
   );

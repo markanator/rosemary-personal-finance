@@ -18,7 +18,6 @@ import { Controller, useForm } from 'react-hook-form';
 import { AddTrxSchema } from './AddTrxSchema';
 import { useAddTrxStyles } from './muiFormStyle';
 import { db, firebase } from '../../data/firebase';
-// import useUser from '../../hooks/use-user';
 import useAppContext from '../../hooks/AppContext';
 import uid from '../../utils/uid';
 
@@ -39,7 +38,7 @@ export default function AddTransactionModal({ handleClose, open }) {
   const watchTrxType = watch('trxType');
 
   const onSubmit = async (data) => {
-    const trx_id = uid();
+    const trx_id = uid(); // <- this uid is not real uid. don't confused!
     try {
       await db
         .collection('users')
@@ -95,23 +94,23 @@ export default function AddTransactionModal({ handleClose, open }) {
                 </FormHelperText>
               </FormControl>
               {/* TRANSACTION DATE */}
-              <FormControl className={classes.formControls}>
-                <Controller
-                  name="trxDate"
+              <FormControl className={classes.formControls}> {/* This one parent of a input section*/}
+                <Controller 
+                  name="trxDate" //this is the name for actual data name that store into data base
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
                     <TextField
                       {...field}
                       className={classes.input}
-                      type="datetime-local"
-                      label="Transaction Date"
+                      type="datetime-local" // data type that stroe into data base
+                      label="Transaction Date" // thing to display on submission form
                       InputLabelProps={{
                         shrink: true,
                       }}
                     />
                   )}
-                />
+                /> 
                 <FormHelperText error={!!errors?.trxDate?.message}>
                   {errors.trxDate && 'Incorrect Format.'}
                 </FormHelperText>

@@ -6,10 +6,12 @@ const Results = ({ results }) => {
   return (
     <div className="results flexItem">
       <h3>Results</h3>
+      <br />
       <p id="hours_worked">
         Hours Worked: {data.hoursWorked}h {data.minutesWorked}m |{' '}
         {data.totalWorkHours} hours
       </p>
+      <br />
       <p id="gross_pay">Gross Pay: ${data.totalAmount}</p>
     </div>
   );

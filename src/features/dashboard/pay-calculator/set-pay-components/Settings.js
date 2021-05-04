@@ -5,6 +5,7 @@ const Settings = ({ setPayRate, setMultiplier }) => {
   return (
     <div className="settings flexItem">
       <h3>Pay Rate</h3>
+      <br />
       <form id="settings">
         <div>
           Pay Rate: &nbsp; $

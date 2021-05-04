@@ -7,6 +7,7 @@ const ShiftTimes = (props) => {
   return (
     <div className="shiftTimes flexItem">
       <h3>Shift Times</h3>
+      <br />
       <form id="shift_times">
         <div>
           Start Time: &nbsp;{' '}
@@ -17,7 +18,7 @@ const ShiftTimes = (props) => {
             list="times_list"
           />
         </div>
-
+        <br />
         <div>
           End Time: &nbsp;{' '}
           <input

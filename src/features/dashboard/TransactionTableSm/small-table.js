@@ -5,9 +5,11 @@ import MOCK_DATA from '../../../tempData/trxList.json';
 import AddTransactionModal from '../../../components/AddTransactionModal';
 import formatMoney from '../../../utils/formatMoney';
 import { COLUMNS } from './sm-columns';
+import AddBankAccountModal from '../../../components/AddBankAccountModal/AddBackAccountModal';
 
 export default function SmallTable() {
   const [open, setOpen] = useState(false);
+  const [bankOpen, setBankOpen] = useState(false);
   let balance = 10000; // start with $100
 
   // memoize data to prevent excessive renders
@@ -62,6 +64,14 @@ export default function SmallTable() {
     setOpen(false);
   };
 
+  const OpenAddBankModal = () => {
+    setBankOpen(true);
+  };
+
+  const CloseAddBankModal = () => {
+    setBankOpen(false);
+  };
+
   return (
     <div className="trx__component">
       <div className="trx__adjust">
@@ -73,6 +83,9 @@ export default function SmallTable() {
           {/*
           // TODO:: ADD MODAL TO add a transaction
           */}
+          <button className="btn-primary" onClick={OpenAddBankModal}>
+            Add Bank account
+          </button>
           <button className="btn-primary" onClick={OpenAddTrxModal}>
             Add Transaction
           </button>
@@ -145,6 +158,7 @@ export default function SmallTable() {
           Next
         </button>{' '}
       </div>
+      <AddBankAccountModal handleClose={CloseAddBankModal} open={bankOpen} />
       <AddTransactionModal handleClose={CloseAddTrxModal} open={open} />
     </div>
   );

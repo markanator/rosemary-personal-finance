@@ -1,19 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import { BrowserRouter } from 'react-router-dom';
 //locals
 import App from './App';
-import './styles/globalStyles.css';
-import './styles/cssreset.css';
 import './styles/index.scss';
-import { db } from './data/firebase';
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </>,
   document.getElementById('root')
 );
-
-console.log(db);

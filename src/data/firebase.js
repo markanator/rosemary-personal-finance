@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // Brings in the core functionality:
 import firebase from 'firebase/app';
 

@@ -14,6 +14,7 @@
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "react-hook-form": "^7.0.7",
     "react-icons": "^4.2.0",
     "react-minimal-pie-chart": "^8.2.0",
@@ -57,7 +58,7 @@
   "devDependencies": {
     "eslint": "^7.23.0",
     "eslint-plugin-react": "^7.23.2",
-    "husky": "^4.3.8",
+    "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "prettier-eslint-cli": "^5.0.1"

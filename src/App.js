@@ -1,35 +1,25 @@
-import { useEffect, useState } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import Layout from './components/common/layout/layout';
-import { auth } from './data/firebase';
+import { Route, Switch } from 'react-router-dom';
+import { RosemaryContextProvider } from './hooks/AppContext';
 import DashBoard from './pages/dashboard';
+import Error from './pages/Error';
 import Test from './pages/fireStoreTest';
 import Home from './pages/home';
 import Transaction from './pages/transaction';
+import ProtectedRoute from './utils/ProtectedRoute';
 
 function App() {
-  const [user, setUser] = useState(null);
-  const isAuthenticated = user !== null;
-  
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
-      setUser(currentUser);
-    });
-    return unsubscribe;
-  }, []);
-
   return (
     <>
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
-         <Route path="/dashboard">
-           {isAuthenticated ? <DashBoard /> : <Redirect to="/" />}
-        </Route>
-         <Route path="/transactions">
-           {isAuthenticated ? <Transaction /> : <Redirect to="/" />}
-        </Route> 
+        <ProtectedRoute path="/dashboard">
+          <DashBoard />
+        </ProtectedRoute>
+        <ProtectedRoute path="/transactions">
+          <Transaction />
+        </ProtectedRoute>
         <Route path="/test">
           <Test />
         </Route>
@@ -37,15 +27,21 @@ function App() {
           <Test />
         </Route>
         <Route>
-          {/* make this into a single component */}
-          <Layout>
-            <h1>Error</h1>
-            <p>Page does not exists.</p>
-          </Layout>
+          <Error />
         </Route>
       </Switch>
     </>
   );
 }
 
-export default App;
+function ContextApp() {
+  return (
+    <>
+      <RosemaryContextProvider>
+        <App />
+      </RosemaryContextProvider>
+    </>
+  );
+}
+
+export default ContextApp;

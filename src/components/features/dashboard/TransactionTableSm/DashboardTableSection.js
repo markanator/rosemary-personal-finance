@@ -2,7 +2,6 @@ import React from 'react';
 import SmallTable from './SmallTable';
 import './DashTableStyles.scss';
 import './table.scss';
-import UserListing from './UserListing';
 
 export default function DashboardTableSection() {
   return (
@@ -13,7 +12,6 @@ export default function DashboardTableSection() {
           <h2>Test </h2>
         </div>
         <SmallTable />
-        <UserListing />
       </div>
     </section>
   );

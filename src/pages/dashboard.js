@@ -7,8 +7,6 @@ import PayCalculator from '../features/dashboard/pay-calculator/pay-calculator';
 // data
 import MockData from '../tempData/trxList.json';
 import PieChartParser from '../features/dashboard/PieChartParser/pie-chart_parser';
-import useUser from '../hooks/use-user';
-import useUserData from '../data/hooks/use-user-data';
 
 // console.log(Cashflow);
 
@@ -20,12 +18,6 @@ export default function DashBoard() {
       return item;
     }
   });
-
-  const userState = useUser();
-  console.log(userState.user.uid);
-
-  const userData = useUserData(userState.user.uid);
-  console.log(userData);
 
   return (
     <Layout title="DashBoard">

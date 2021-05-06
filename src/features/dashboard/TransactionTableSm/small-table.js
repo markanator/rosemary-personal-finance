@@ -7,12 +7,14 @@ import { COLUMNS } from './sm-columns';
 import AddBankAccountModal from '../../../components/AddBankAccountModal/AddBackAccountModal';
 // import dayjs from 'dayjs';
 
-export default function SmallTable({ userTransactions }) {
-  console.log(userTransactions);
-
+export default function SmallTable({ userTransactions, userBanks }) {
   const [open, setOpen] = useState(false);
   const [bankOpen, setBankOpen] = useState(false);
-  let balance = 10000; // start with $100
+
+  let balance =
+    userBanks.length > 0
+      ? userBanks.map((acc) => acc.acctAmount).reduce((acc, cv) => acc + cv)
+      : 0;
 
   // memoize data to prevent excessive renders
   const columns = useMemo(() => COLUMNS, []);
@@ -21,16 +23,12 @@ export default function SmallTable({ userTransactions }) {
     () =>
       userTransactions.map((trx) => {
         balance += trx.trx_amount;
-
-        // console.log(dayjs(trx.trx_date.second).format('MM/DD/YYYY'));
-
         return {
           ...trx,
           running_bal: formatMoney(balance),
-          // trx_date: dayjs(trx.trx_date.seconds).format('MM/DD/YYYY'),
         };
       }),
-    []
+    [userTransactions]
   );
 
   const tableInstance = useTable(

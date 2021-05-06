@@ -35,7 +35,7 @@ export default function AddTransactionModal({ handleClose, open }) {
   } = useForm({
     resolver: yupResolver(AddTrxSchema),
   });
-  const watchTrxType = watch('trxType');
+  const watchTrxType = watch('trx_type');
 
   const onSubmit = async (data) => {
     const trx_id = uid(); // <- this uid is not real uid. don't confused!
@@ -75,9 +75,9 @@ export default function AddTransactionModal({ handleClose, open }) {
             <Grid item xs={6}>
               {/* TRANSACTION TYPE */}
               <FormControl className={classes.formControls}>
-                <InputLabel htmlFor="trxType">Transaction Type</InputLabel>
+                <InputLabel htmlFor="trx_type">Transaction Type</InputLabel>
                 <Controller
-                  name="trxType"
+                  name="trx_type"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
@@ -89,14 +89,16 @@ export default function AddTransactionModal({ handleClose, open }) {
                   )}
                 />
 
-                <FormHelperText error={!!errors?.trxType?.message}>
-                  {errors.trxType && errors.trxType.message}
+                <FormHelperText error={!!errors?.trx_type?.message}>
+                  {errors.trx_type && errors.trx_type.message}
                 </FormHelperText>
               </FormControl>
               {/* TRANSACTION DATE */}
-              <FormControl className={classes.formControls}> {/* This one parent of a input section*/}
-                <Controller 
-                  name="trxDate" //this is the name for actual data name that store into data base
+              <FormControl className={classes.formControls}>
+                {' '}
+                {/* This one parent of a input section*/}
+                <Controller
+                  name="trx_date" //this is the name for actual data name that store into data base
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
@@ -110,15 +112,15 @@ export default function AddTransactionModal({ handleClose, open }) {
                       }}
                     />
                   )}
-                /> 
-                <FormHelperText error={!!errors?.trxDate?.message}>
-                  {errors.trxDate && 'Incorrect Format.'}
+                />
+                <FormHelperText error={!!errors?.trx_date?.message}>
+                  {errors.trx_date && 'Incorrect Format.'}
                 </FormHelperText>
               </FormControl>
               {/* TEXT AREA */}
               <FormControl className={classes.formControls}>
                 <Controller
-                  name="trxDetails"
+                  name="trx_details"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
@@ -137,19 +139,19 @@ export default function AddTransactionModal({ handleClose, open }) {
                     />
                   )}
                 />
-                <FormHelperText error={!!errors?.trxDetails?.message}>
-                  {errors.trxDetails && errors.trxDetails.message}
+                <FormHelperText error={!!errors?.trx_details?.message}>
+                  {errors.trx_details && errors.trx_details.message}
                 </FormHelperText>
               </FormControl>
             </Grid>
             <Grid item xs={6}>
               {/* TRX CATEGORY */}
               <FormControl className={classes.formControls}>
-                <InputLabel htmlFor="trxCategory">
+                <InputLabel htmlFor="trx_category">
                   Transaction Category
                 </InputLabel>
                 <Controller
-                  name="trxCategory"
+                  name="trx_category"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
@@ -176,15 +178,15 @@ export default function AddTransactionModal({ handleClose, open }) {
                     </Select>
                   )}
                 />
-                <FormHelperText error={!!errors?.trxCategory?.message}>
-                  {errors.trxCategory && errors.trxCategory.message}
+                <FormHelperText error={!!errors?.trx_category?.message}>
+                  {errors.trx_category && errors.trx_category.message}
                 </FormHelperText>
               </FormControl>
               {/* TRX AMOUNT */}
               <FormControl className={classes.formControls}>
-                <InputLabel htmlFor="trxAmount">Transaction Amount</InputLabel>
+                <InputLabel htmlFor="trx_amount">Transaction Amount</InputLabel>
                 <Controller
-                  name="trxAmount"
+                  name="trx_amount"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
@@ -198,15 +200,15 @@ export default function AddTransactionModal({ handleClose, open }) {
                     />
                   )}
                 />
-                <FormHelperText error={!!errors?.trxAmount?.message}>
-                  {errors.trxAmount && 'Required.'}
+                <FormHelperText error={!!errors?.trx_amount?.message}>
+                  {errors.trx_amount && 'Required.'}
                 </FormHelperText>
               </FormControl>
               {/* LINKED ACCOUNT */}
               <FormControl className={classes.formControls}>
-                <InputLabel htmlFor="trxBank">Linked Account</InputLabel>
+                <InputLabel htmlFor="trx_bank">Linked Account</InputLabel>
                 <Controller
-                  name="trxBank"
+                  name="trx_bank"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
@@ -216,8 +218,8 @@ export default function AddTransactionModal({ handleClose, open }) {
                     </Select>
                   )}
                 />
-                <FormHelperText error={!!errors?.trxBank?.message}>
-                  {errors.trxBank && 'Required.'}
+                <FormHelperText error={!!errors?.trx_bank?.message}>
+                  {errors.trx_bank && 'Required.'}
                 </FormHelperText>
               </FormControl>
             </Grid>

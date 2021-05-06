@@ -1,13 +1,15 @@
 /* eslint-disable react/jsx-key */
 import React, { useMemo, useState } from 'react';
 import { usePagination, useSortBy, useTable } from 'react-table';
-import MOCK_DATA from '../../../tempData/trxList.json';
 import AddTransactionModal from '../../../components/AddTransactionModal';
 import formatMoney from '../../../utils/formatMoney';
 import { COLUMNS } from './sm-columns';
 import AddBankAccountModal from '../../../components/AddBankAccountModal/AddBackAccountModal';
+// import dayjs from 'dayjs';
 
-export default function SmallTable() {
+export default function SmallTable({ userTransactions }) {
+  console.log(userTransactions);
+
   const [open, setOpen] = useState(false);
   const [bankOpen, setBankOpen] = useState(false);
   let balance = 10000; // start with $100
@@ -17,11 +19,15 @@ export default function SmallTable() {
 
   const data = useMemo(
     () =>
-      MOCK_DATA.map((trx) => {
+      userTransactions.map((trx) => {
         balance += trx.trx_amount;
+
+        // console.log(dayjs(trx.trx_date.second).format('MM/DD/YYYY'));
+
         return {
           ...trx,
           running_bal: formatMoney(balance),
+          // trx_date: dayjs(trx.trx_date.seconds).format('MM/DD/YYYY'),
         };
       }),
     []

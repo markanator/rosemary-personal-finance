@@ -23,6 +23,9 @@ function App() {
         <Route path="/test">
           <Test />
         </Route>
+        <Route path="/test">
+          <Test />
+        </Route>
         <Route>
           <Error />
         </Route>

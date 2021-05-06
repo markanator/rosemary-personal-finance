@@ -1,3 +1,4 @@
+import { Avatar } from '@material-ui/core';
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import useAppContext from '../../../hooks/AppContext';
@@ -8,7 +9,16 @@ export default function TopNavBar() {
 
   let AuthButtonContent;
   if (isSignedIn && user !== null) {
-    AuthButtonContent = <LoginButton text="Logout" authFunction={signOut} />;
+    AuthButtonContent = (
+      <div style={{ display: 'inline-flex' }}>
+        <LoginButton text="Logout" authFunction={signOut} />
+        <Avatar
+          alt={user.displayName}
+          src={user.photoURL}
+          style={{ marginLeft: '1rem' }}
+        />
+      </div>
+    );
   } else {
     AuthButtonContent = <LoginButton text="Login" authFunction={signIn} />;
   }

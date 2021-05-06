@@ -1,28 +1,30 @@
 /* eslint-disable react/jsx-key */
 import React, { useMemo, useState } from 'react';
 import { usePagination, useSortBy, useTable } from 'react-table';
-import MOCK_DATA from '../../../tempData/trxList.json';
-import formatMoney from '../../../utils/formatMoney';
-import { MainTableColumns } from './table-columns';
 import AddTransactionModal from '../../../components/AddTransactionModal';
+import formatMoney from '../../../utils/formatMoney';
 import './mainTrxTable.scss';
+import { MainTableColumns } from './table-columns';
 
-export default function FullTable() {
+export default function FullTable({ transactions, banks }) {
   const [open, setOpen] = useState(false);
-  let balance = 0;
+  let balance =
+    banks.length > 0
+      ? banks.map((acc) => acc.acctAmount).reduce((acc, cv) => acc + cv)
+      : 0;
+  // let balance = 0;
   const columns = useMemo(() => MainTableColumns, []);
 
   const data = useMemo(
     () =>
-      MOCK_DATA.map((trx) => {
-        // eslint-disable-next-line
-        balance += trx.trx_amount * 100;
+      transactions.map((trx) => {
+        balance += trx.trx_amount;
         return {
           ...trx,
           running_bal: formatMoney(balance),
         };
       }),
-    []
+    [transactions]
   );
 
   const {
@@ -64,7 +66,9 @@ export default function FullTable() {
     <>
       <div className="trxtable__wrapper">
         <div className="trxtable__header">
-          <button className="btn-primary" onClick={OpenAddTrxModal}>Add Transaction</button>
+          <button className="btn-primary" onClick={OpenAddTrxModal}>
+            Add Transaction
+          </button>
         </div>
         <table className="trx__table" {...getTableProps()}>
           <thead>

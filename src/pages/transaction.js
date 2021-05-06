@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../components/common/layout/layout';
 import formatMoney from '../utils/formatMoney';
 import FullTable from '../features/transactions-page/main-table';
+import useUser from '../hooks/use-user';
+import { usersCollection } from '../data/firebase';
 
 export default function Transaction() {
+  const [transactions, setTransactions] = useState([]);
+  const [banks, setBanks] = useState([]);
+  const { isLoading, user } = useUser();
+
+  useEffect(() => {
+    const unsub = usersCollection.doc(user.uid).onSnapshot((snapshot) => {
+      setTransactions(snapshot.data().transactions);
+      setBanks(snapshot.data().banks);
+    });
+    return () => {
+      unsub();
+    };
+  }, []);
+
+  if (isLoading === 'loading') {
+    return (
+      <Layout title="Transactions">
+        <p>Loading...</p>
+      </Layout>
+    );
+  }
+
   return (
     <Layout title="All Transactions">
       <section className="transaction__main">
@@ -13,23 +37,28 @@ export default function Transaction() {
               <h2>My Accounts</h2>
               <hr className="--divider" />
               <ul className="sidebar__accounts">
-                <SideAccountBox
-                  Account="Bank of America"
-                  Type="Checkings"
-                  Balance={555500}
-                  Color="#EB4848"
-                />
-                <SideAccountBox
-                  Account="Chase Bank"
-                  Type="Checkings"
-                  Balance={265500}
-                  Color="#317BE9"
-                />
+                {banks.length > 0 ? (
+                  banks.map((bank) => (
+                    <SideAccountBox
+                      key={bank.bank_id}
+                      Account={bank.bankName}
+                      Type={bank.acctType}
+                      Balance={bank.acctAmount}
+                      Color={
+                        bank.acctType === 'Checking' ? '#317BE9' : '#EB4848'
+                      }
+                    />
+                  ))
+                ) : (
+                  <li>
+                    <p>Please enter a bank!</p>
+                  </li>
+                )}
               </ul>
             </div>
           </aside>
           <section className="transaction__table">
-            <FullTable />
+            <FullTable transactions={transactions} banks={banks} />
           </section>
         </div>
       </section>

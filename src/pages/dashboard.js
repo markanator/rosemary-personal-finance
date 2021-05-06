@@ -5,11 +5,9 @@ import PieChartRender from '../features/dashboard/PieChartParser/pie-chart';
 import DashboardTableSection from '../features/dashboard/TransactionTableSm';
 import PayCalculator from '../features/dashboard/pay-calculator/pay-calculator';
 import useUser from '../hooks/use-user';
-import useUserData from '../data/hooks/use-user-data';
+// import useUserData from '../data/hooks/use-user-data';
 import PieChartParser from '../features/dashboard/PieChartParser/pie-chart_parser';
 import { usersCollection } from '../data/firebase';
-
-// console.log(Cashflow);
 
 export default function DashBoard() {
   const [transactions, setTransactions] = useState([]);
@@ -38,10 +36,10 @@ export default function DashBoard() {
   console.log('USER DATA', transactions);
 
   let finalResults;
-  let tempCashFlow;
+  let cashFlowRatio;
   if (transactions.length > 0) {
     finalResults = PieChartParser(transactions);
-    tempCashFlow = finalResults.filter((item) => {
+    cashFlowRatio = finalResults.filter((item) => {
       if (item.category === 'Income' || item.category === 'Bills') {
         return item;
       }
@@ -64,7 +62,7 @@ export default function DashBoard() {
             </div>
           ) : (
             <>
-              <PieChartRender title="CashFlow" chartData={tempCashFlow} />
+              <PieChartRender title="CashFlow" chartData={cashFlowRatio} />
               <PieChartRender title="Spending" chartData={finalResults} />
             </>
           )}

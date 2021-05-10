@@ -14,3 +14,22 @@
   justify-content: space-around;
   margin: 4rem 0px;
 }
+
+.empty__pies {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1065px;
+  height: 515px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1.25rem;
+  }
+}

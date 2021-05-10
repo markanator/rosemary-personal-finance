@@ -74,7 +74,7 @@ export default function PieChartParser(arrayOfData) {
     }
   });
 
-  console.log(totalSum);
+  console.log('total sum', totalSum);
   return finalResults;
 }
 

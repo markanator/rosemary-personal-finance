@@ -38,7 +38,7 @@ export default function AddBankAccountModal({ handleClose, open }) {
         .update({
           banks: firebase.firestore.FieldValue.arrayUnion({
             ...data,
-            acctAmount: parseInt(data.acctAmount),
+            acctAmount: parseInt(data.acctAmount * 100), // need to convert to cents
             bank_id,
           }),
         });
@@ -61,7 +61,7 @@ export default function AddBankAccountModal({ handleClose, open }) {
           <Grid container className={classes.grid}>
             <Grid item xs={12} className={classes.headergrid}>
               <Typography variant="h4">Add Bank</Typography>
-              <Typography variant="p">
+              <Typography variant="body1">
                 Add a new bank to your bank account lists.
               </Typography>
             </Grid>

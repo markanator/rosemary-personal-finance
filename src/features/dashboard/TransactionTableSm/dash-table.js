@@ -1,25 +1,16 @@
 import React from 'react';
-import SmallTable from './small-table';
 import './DashTableStyles.scss';
+import SmallTable from './small-table';
 import './table.scss';
-import useUser from '../../../hooks/use-user';
-import useUserData from '../../../data/hooks/use-user-data';
 
-export default function DashboardTableSection() {
-  const userState = useUser();
-
-  const userData = useUserData(userState.user.uid);
-  console.log(userData.status);
-
-  if (userData.status === 'loading') return 'loading';
-
+export default function DashboardTableSection({ transactions, banks }) {
   return (
     <section className="dashtrx__section">
       <div className="trx__wrapper">
         <div className="--header">
           <h2>Transactions</h2>
         </div>
-        <SmallTable userTransactions={userData.data.transactions} />
+        <SmallTable userTransactions={transactions} userBanks={banks} />
       </div>
     </section>
   );

@@ -28,10 +28,10 @@ export default function PieChartRender({ title, chartData }) {
         labelStyle={lableStyle}
       />
       <ul className="details">
-        {chartData.slice(0, 5).map((element) => {
+        {chartData.slice(0, 5).map((element, idx) => {
           const amount = formatMoney(element.value);
           return (
-            <li key={element.value}>
+            <li key={`[${title},${element.value + idx}]`}>
               <span className="label">
                 <span
                   style={{ backgroundColor: `${element.color}` }}

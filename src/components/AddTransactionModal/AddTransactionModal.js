@@ -40,6 +40,7 @@ export default function AddTransactionModal({ handleClose, open }) {
   const onSubmit = async (data) => {
     const trx_id = uid(); // <- this uid is not real uid. don't confused!
     try {
+      const isWithdrawal = data.trx_type === 'Deposit' ? 1 : -1;
       await db
         .collection('users')
         .doc(user.uid)
@@ -47,6 +48,7 @@ export default function AddTransactionModal({ handleClose, open }) {
           transactions: firebase.firestore.FieldValue.arrayUnion({
             ...data,
             trx_id,
+            trx_amount: data.trx_amount * 100 * isWithdrawal,
           }),
         });
       console.log(
@@ -68,7 +70,7 @@ export default function AddTransactionModal({ handleClose, open }) {
           <Grid container className={classes.grid}>
             <Grid item xs={12} className={classes.headergrid}>
               <Typography variant="h4">Add Transaction</Typography>
-              <Typography variant="p">
+              <Typography variant="body1">
                 Add a new transaction to your transaction history
               </Typography>
             </Grid>

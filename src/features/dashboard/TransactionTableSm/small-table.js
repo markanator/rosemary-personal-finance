@@ -11,6 +11,7 @@ import DeleteBank from '../delete-bank-modal/deleteBank';
 export default function SmallTable({ userTransactions, userBanks }) {
   const [open, setOpen] = useState(false);
   const [bankOpen, setBankOpen] = useState(false);
+  const [bankDelete, setBankDelete] = useState(false);
 
   let balance =
     userBanks.length > 0

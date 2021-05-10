@@ -5,6 +5,7 @@ import AddTransactionModal from '../../../components/AddTransactionModal';
 import formatMoney from '../../../utils/formatMoney';
 import { COLUMNS } from './sm-columns';
 import AddBankAccountModal from '../../../components/AddBankAccountModal/AddBackAccountModal';
+import DeleteBank from '../delete-bank-modal/deleteBank';
 // import dayjs from 'dayjs';
 
 export default function SmallTable({ userTransactions, userBanks }) {
@@ -76,6 +77,14 @@ export default function SmallTable({ userTransactions, userBanks }) {
     setBankOpen(false);
   };
 
+  const OpenDeleteBankModal = () => {
+    setBankDelete(true);
+  };
+
+  const CloseDeleteBankModal = () => {
+    setBankDelete(false);
+  };
+
   return (
     <div className="trx__component">
       <div className="trx__adjust">
@@ -87,9 +96,15 @@ export default function SmallTable({ userTransactions, userBanks }) {
           {/*
           // TODO:: ADD MODAL TO add a transaction
           */}
+
           <button className="btn-primary" onClick={OpenAddBankModal}>
             Add Bank account
           </button>
+
+          <button className="btn-primary" onClick={OpenDeleteBankModal}>
+            Delete Bank account
+          </button>
+
           <button className="btn-primary" onClick={OpenAddTrxModal}>
             Add Transaction
           </button>
@@ -164,6 +179,7 @@ export default function SmallTable({ userTransactions, userBanks }) {
       </div>
       <AddBankAccountModal handleClose={CloseAddBankModal} open={bankOpen} />
       <AddTransactionModal handleClose={CloseAddTrxModal} open={open} />
+      <DeleteBank handleClose={CloseDeleteBankModal} open={bankDelete} />
     </div>
   );
 }

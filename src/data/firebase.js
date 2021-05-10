@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 // Brings in the core functionality:
 import firebase from 'firebase/app';
+import admin from 'firebase-admin';
 
 // Brings in the specific services we want to use:
 import 'firebase/firestore';
@@ -36,4 +37,4 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 const usersCollection = db.collection('users');
 
-export { db, auth, provider, usersCollection, firebase };
+export { db, auth, provider, usersCollection, firebase, admin };

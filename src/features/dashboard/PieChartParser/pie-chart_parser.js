@@ -66,15 +66,15 @@ export default function PieChartParser(arrayOfData) {
       case 'Other':
         // add elemnt value to finalResults
         finalResults[5].value += element.trx_amount;
+        // eslint-disable-next-line no-unused-vars
         totalSum += element.trx_amount;
         break;
       default:
-        console.log('Nothing Detected');
         break;
     }
   });
 
-  console.log('total sum', totalSum);
+  // console.log('total sum', totalSum);
   return finalResults;
 }
 

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '../components/common/layout/layout';
-
-import PieChartRender from '../features/dashboard/PieChartParser/pie-chart';
-import DashboardTableSection from '../features/dashboard/TransactionTableSm';
+import { usersCollection } from '../data/firebase';
 import PayCalculator from '../features/dashboard/pay-calculator/pay-calculator';
-import useUser from '../hooks/use-user';
+import PieChartRender from '../features/dashboard/PieChartParser/pie-chart';
 // import useUserData from '../data/hooks/use-user-data';
 import PieChartParser from '../features/dashboard/PieChartParser/pie-chart_parser';
-import { usersCollection } from '../data/firebase';
+import DashboardTableSection from '../features/dashboard/TransactionTableSm';
+import useUser from '../hooks/use-user';
 
 export default function DashBoard() {
   const [transactions, setTransactions] = useState([]);
@@ -18,7 +17,7 @@ export default function DashBoard() {
     const unsub = usersCollection.doc(user.uid).onSnapshot((snapshot) => {
       setTransactions(snapshot.data().transactions);
       setBanks(snapshot.data().banks);
-      console.log('SNAPP', snapshot.data());
+      // console.log('SNAPP', snapshot.data());
     });
     return () => {
       unsub();
@@ -33,7 +32,7 @@ export default function DashBoard() {
     );
   }
 
-  console.log('USER DATA', transactions);
+  // console.log('USER DATA', transactions);
 
   let finalResults;
   let cashFlowRatio;

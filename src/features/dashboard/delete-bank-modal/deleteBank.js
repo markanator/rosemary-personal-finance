@@ -8,9 +8,10 @@ import {
 } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useAddTrxStyles } from '../../../components/AddTransactionModal/muiFormStyle';
-import { db, firebase } from '../../../data/firebase';
+import { db } from '../../../data/firebase';
 import useUserData from '../../../data/hooks/use-user-data';
 import useAppContext from '../../../hooks/AppContext';
+import formatMoney from '../../../utils/formatMoney';
 
 export default function DeleteBank({ handleClose, open }) {
   const classes = useAddTrxStyles();
@@ -21,7 +22,6 @@ export default function DeleteBank({ handleClose, open }) {
 
   const handleSelectChange = (event) => {
     setUserBank(event.target.value);
-    // console.log(event.target.value);
   };
 
   const onSubmit = async (event) => {
@@ -30,12 +30,14 @@ export default function DeleteBank({ handleClose, open }) {
       return;
     }
     try {
-      await db
-        .collection('users')
-        .doc(user.uid)
-        .update({
-          banks: firebase.firestore.FieldValue.arrayRemove(userBank),
-        });
+      const tempBanksArr = data.banks.filter(
+        (bank) => bank.bank_id !== userBank
+      );
+
+      await db.collection('users').doc(user.uid).update({
+        banks: tempBanksArr,
+      });
+
       console.log(
         `Successfully deleted a bank account to a user document::`,
         userBank
@@ -43,17 +45,12 @@ export default function DeleteBank({ handleClose, open }) {
     } catch (err) {
       console.error(err);
     }
-
     handleClose();
   };
 
   if (status === 'loading') {
     return <p>Loading...</p>;
   }
-
-  //   console.log(userBank);
-  //   console.log(data);
-
   return (
     <Modal open={open} onClose={handleClose} className={classes.modal}>
       <Paper className={classes.paper} elevation={3}>
@@ -65,29 +62,35 @@ export default function DeleteBank({ handleClose, open }) {
                 Delete a bank to your bank account lists.
               </Typography>
             </Grid>
-            <Select
-              onChange={handleSelectChange}
-              native
-              className={classes.input}
-            >
-              <option aria-label="None" value="" />
-              {data.banks.map((element) => {
-                return (
-                  <option key={element.bank_id} value={element}>
-                    {element.bankName} | {element.acctType} | $
-                    {element.acctAmount}
-                  </option>
-                );
-              })}
-            </Select>
-          </Grid>
-          <Grid item xs={12} className={classes.footerGrid}>
-            <Button variant="contained" type="submit" color="primary">
-              Delete
-            </Button>
-            <Button variant="outlined" color="secondary" onClick={handleClose}>
-              Cancel
-            </Button>
+            <Grid item xs={12}>
+              <Select
+                onChange={handleSelectChange}
+                native
+                className={classes.input}
+              >
+                <option aria-label="None" value="" label="Select an Account" />
+                {data.banks.map((element) => {
+                  return (
+                    <option key={element.bank_id} value={element.bank_id}>
+                      {element.bankName} | {element.acctType} |
+                      {formatMoney(element.acctAmount * 100)}
+                    </option>
+                  );
+                })}
+              </Select>
+            </Grid>
+            <Grid item xs={12} className={classes.footerGrid}>
+              <Button variant="contained" type="submit" color="primary">
+                Delete
+              </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                onClick={handleClose}
+              >
+                Cancel
+              </Button>
+            </Grid>
           </Grid>
         </form>
       </Paper>

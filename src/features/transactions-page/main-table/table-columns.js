@@ -9,7 +9,7 @@ export const MainTableColumns = [
   {
     Header: 'Date',
     accessor: 'trx_date',
-    Cell: ({ value }) => dayjs(value).format('MM/DD/YY').toString(),
+    Cell: ({ value }) => dayjs(value.toDate()).format('MM/DD/YY').toString(),
     disableFilters: true,
   },
   {
